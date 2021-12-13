@@ -1,0 +1,14 @@
+{
+  "name": "@design-ops/design-system",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "postbuild": "yarn run tsc dist/**/*.js --declaration --allowJs --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "style-dictionary": "^3.1.1"
+  }
+}

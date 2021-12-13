@@ -1,0 +1,40 @@
+{
+  "workspaces": [
+    "packages/*"
+  ],
+  "name": "design-ops-frontend-challenge",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "prebootstrap": "yarn",
+    "bootstrap": "yarn pkg system build",
+    "dev": "yarn pkg news dev",
+    "build": "turbo run build --cache-dir=./.turbo",
+    "start": "yarn bootstrap && yarn pkg news build && yarn pkg news start",
+    "pkg": "manypkg run"
+  },
+  "dependencies": {
+    "turbo": "^1.0.24"
+  },
+  "devDependencies": {
+    "@manypkg/cli": "^0.19.1"
+  },
+  "turbo": {
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**"
+        ]
+      },
+      "test": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+  }
+}
