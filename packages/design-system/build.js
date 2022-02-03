@@ -48,7 +48,7 @@ const getStyleDictionaryConfig = ({ theme }) => {
 console.log("Build started...");
 
 const platforms = ["web/css", "web/scss", "web/js"];
-const themes = ["theme-one"];
+const themes = ["theme-one", "theme-brazil"];
 
 themes.forEach((theme) => {
   if (theme) {
