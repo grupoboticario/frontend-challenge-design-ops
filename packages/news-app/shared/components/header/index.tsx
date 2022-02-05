@@ -1,6 +1,6 @@
 import { styled } from "../../../stitches.config";
 
-import { MenuLocation, Form, Wrapper, Grid, Nav } from "../../components";
+import { MenuLocation, Form, Wrapper, Grid, Nav } from "../";
 
 const StyledHeader = styled('header', {
   backgroundColor: "$theme",
