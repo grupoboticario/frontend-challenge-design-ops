@@ -5,21 +5,23 @@ import * as S from './index.style';
 export const Card = ({
   src,
   alt,
-  category = null,
+  category,
   title,
-  publishedTime = null,
+  publishedTime,
+  variant,
 }: {
   src: string;
   alt: string;
-  category: any;
+  category?: any;
   title: string;
-  publishedTime: any;
+  publishedTime?: any;
+  variant?: any;
 }) => {
   return (
     <>
-      <S.StyledCard>
+      <S.StyledCard variant={variant}>
         <S.StyledImage>
-          <Image width="272" height="104" src={src} alt={alt} />
+          <Image layout="fill" src={src} alt={alt} />
         </S.StyledImage>
         <S.CardContent>
           {category && (

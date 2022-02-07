@@ -16,12 +16,13 @@ export const defaultTheme = {
   radii: {
     sharp: "0px",
     small: "4px",
-    medium: "8px",
+    medium: "6px",
     large: "16px",
     pill: "100%"
   },
   fonts: {
     sourceSansPro: 'Source Sans Pro, sans-serif',
+    rubik: 'Rubik, sans-serif',
   },
   "fontSizes": {
     xxs: "0.5rem",
@@ -34,7 +35,9 @@ export const defaultTheme = {
     xxxl: "1.5rem",
   },
   fontWeights: {
+    light: "300",
     regular: "400",
+    medium: '500',
     semiBold: "600",
     bold: "700"
   },

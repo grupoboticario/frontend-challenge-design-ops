@@ -4,9 +4,22 @@ import { Text } from '..';
 
 export const StyledCard = styled('div', {
   display: 'flex',
+
+  variants: {
+    variant: {
+      highlight: {
+        flexDirection: 'column',
+        '& figure': {
+          width: 368,
+          height: 120,
+        },
+      },
+    },
+  },
 });
 
 export const StyledImage = styled('figure', {
+  position: 'relative',
   marginRight: '$4',
 
   '& img': {

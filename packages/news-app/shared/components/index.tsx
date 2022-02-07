@@ -1,11 +1,13 @@
 export * from './button';
 export * from './text';
 export * from './card';
-export { Grid, Wrapper, Main } from './containers';
+export * from './burger-button';
+export { Flex, Wrapper, Grid, Main } from './containers';
 export { Form } from './form';
 export { Header } from './header';
 export { MenuLocation } from './menu-location';
 export * from './line';
-export { Nav } from './nav';
+export { Logo } from './logo';
+export * from './nav';
 export * from './highlighted-articles';
 export * from './articles-list';

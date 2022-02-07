@@ -1,5 +1,6 @@
-import { styled } from "../../../../stitches.config";
+import { styled } from '../../../../stitches.config';
 
 export const Main = styled('main', {
-  color: "$secondary",
+  color: '$secondary',
+  paddingBottom: '$23',
 });

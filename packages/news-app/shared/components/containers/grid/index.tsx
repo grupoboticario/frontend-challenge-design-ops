@@ -1,6 +1,13 @@
-import { styled } from "../../../../stitches.config";
+import { styled } from '../../../../stitches.config';
 
-export const Grid = styled('div', {
-  display: "flex",
-  justifyContent: "space-between",
+const StyledGrid = styled('div', {
+  color: '$secondary',
 });
+
+export const Grid = ({ children }: { children: any }) => {
+  return (
+    <>
+      <StyledGrid>{children}</StyledGrid>
+    </>
+  );
+};

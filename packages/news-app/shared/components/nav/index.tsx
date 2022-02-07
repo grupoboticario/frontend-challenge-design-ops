@@ -1,23 +1,34 @@
+import { useState } from 'react';
 import { styled } from '../../../stitches.config';
-import { Grid } from '../';
-import { Wrapper } from '../containers';
+import { Flex, Wrapper, Logo } from '../';
 
 const StyledNav = styled('nav', {
+  position: 'absolute',
+  top: 70,
+  width: '70vw',
   backgroundColor: '$theme',
-  marginTop: '$5',
+  zIndex: 2,
+
+  '@desktop': {
+    position: 'relative',
+    top: 0,
+    width: '100%',
+    marginTop: '$5',
+  },
 });
 
 const StyledList = styled('ul', {
   display: 'flex',
+  flexDirection: 'column',
   listStyle: 'none',
+
+  '@desktop': {
+    flexDirection: 'row',
+  },
 });
 
 const StyledListItem = styled('li', {
   transition: 'all .2s',
-
-  '&:hover': {
-    backgroundColor: '$menuHover',
-  },
 });
 
 const TextMenu = styled('a', {
@@ -27,13 +38,21 @@ const TextMenu = styled('a', {
   color: '$textMenu',
   fontSize: '$4',
   textDecoration: 'none',
+
+  '&:hover': {
+    backgroundColor: '$menuHover',
+  },
+
+  '&:visited': {
+    backgroundColor: '$menuVisited',
+  },
 });
 
 export const Nav = () => {
   return (
     <StyledNav>
       <Wrapper>
-        <Grid>
+        <Flex>
           <StyledList>
             <StyledListItem>
               <TextMenu href="#" title="Go to page">
@@ -51,7 +70,7 @@ export const Nav = () => {
               </TextMenu>
             </StyledListItem>
           </StyledList>
-        </Grid>
+        </Flex>
       </Wrapper>
     </StyledNav>
   );

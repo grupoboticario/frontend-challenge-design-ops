@@ -1,5 +1,6 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config';
 
 export const Line = styled('hr', {
-  color: "$secondary",
+  color: '$line',
+  my: '$15',
 });
