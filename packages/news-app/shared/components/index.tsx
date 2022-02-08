@@ -9,5 +9,6 @@ export { MenuLocation } from './menu-location';
 export * from './line';
 export { Logo } from './logo';
 export * from './nav';
-export * from './highlighted-articles';
+export * from './headline-articles';
 export * from './articles-list';
+export * from './result-articles-list';

@@ -11,45 +11,48 @@ const List = styled('ul', {
   '@desktop': {
     gridAutoFlow: 'dense',
     rowGap: '20px',
-    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
 });
 const ListItem = styled('li', {
-  width: '100%',
-  height: 105,
-
-  '& figure': {
-    flexBasis: 100,
-    width: 100,
-    height: 104,
-  },
-
   '@desktop': {
-    width: 559,
-    height: 146,
+    width: 368,
+    height: 232,
 
-    '& figure': {
-      flexBasis: 272,
-      flexShrink: 0,
-      width: 272,
-      height: 146,
+    '&:first-child': {
+      width: 736,
+      height: 488,
+      gridColumn: 'span 2',
+      gridRow: 'span 2',
+
+      '& figure': {
+        width: 736,
+        height: 346,
+      },
+
+      '& h3': {
+        fontSize: 'calc($xl * 2)',
+        lineHeight: '$11',
+        height: 90,
+      },
     },
   },
 });
 
-export const ArticlesList = ({ articles }: { articles: any[] }) => {
+export const HeadlineArticles = ({ articles }: { articles: any[] }) => {
   return (
     <Wrapper>
-      <Title as="h2">Latest News</Title>
+      <Title as="h1">Headlines</Title>
       <List>
         {articles.map((article, i) => (
-          <ListItem key={`article-item-${i}`}>
+          <ListItem key={`headline-article-item-${i}`}>
             <Card
               src={article.urlToImage}
-              url={article.url}
               alt="Here is the image alt description"
               title={article.title}
               category="Category"
+              url={article.url}
+              variant="highlight"
             />
           </ListItem>
         ))}

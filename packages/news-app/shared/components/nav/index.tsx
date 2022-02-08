@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { styled } from '../../../stitches.config';
-import { Flex, Wrapper, Logo } from '../';
+import { Flex, Wrapper } from '../';
+import Link from 'next/link';
 
 const StyledNav = styled('nav', {
   position: 'absolute',
@@ -48,27 +48,19 @@ const TextMenu = styled('a', {
   },
 });
 
-export const Nav = () => {
+export const Nav = ({ navItems }: { navItems: any[] }) => {
   return (
     <StyledNav>
       <Wrapper>
         <Flex>
           <StyledList>
-            <StyledListItem>
-              <TextMenu href="#" title="Go to page">
-                Link 1
-              </TextMenu>
-            </StyledListItem>
-            <StyledListItem>
-              <TextMenu href="#" title="Go to page">
-                Link 2
-              </TextMenu>
-            </StyledListItem>
-            <StyledListItem>
-              <TextMenu href="#" title="Go to page">
-                Link 3
-              </TextMenu>
-            </StyledListItem>
+            {navItems.map((navItem, i) => (
+              <StyledListItem key={`nav-item-${i}`}>
+                <Link href={navItem.href} passHref>
+                  <TextMenu title="Go to home page">{navItem.name}</TextMenu>
+                </Link>
+              </StyledListItem>
+            ))}
           </StyledList>
         </Flex>
       </Wrapper>

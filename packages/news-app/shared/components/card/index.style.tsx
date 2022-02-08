@@ -1,7 +1,5 @@
 import { styled } from '../../../stitches.config';
 
-import { Text } from '..';
-
 export const StyledCard = styled('div', {
   display: 'flex',
 
@@ -14,6 +12,9 @@ export const StyledCard = styled('div', {
           height: 120,
         },
       },
+      resultLIst: {
+        '& h1': {},
+      },
     },
   },
 });
@@ -21,15 +22,18 @@ export const StyledCard = styled('div', {
 export const StyledImage = styled('figure', {
   position: 'relative',
   marginRight: '$4',
+  overflow: 'hidden',
+  borderRadius: '$medium',
 
   '& img': {
+    maxWidth: '100%',
     borderRadius: '$medium',
   },
 });
 
 export const CardContent = styled('div', {});
 
-export const StyledText = styled(Text, {
+export const StyledText = styled('p', {
   display: 'block',
   fontWeight: '$regular',
   fontSize: '$xl',
@@ -49,6 +53,10 @@ export const StyledText = styled(Text, {
         color: '$textAuxiliar',
         fontSize: '$lg',
       },
+      title: {
+        height: 68,
+        overflow: 'hidden',
+      },
     },
   },
 });
@@ -58,7 +66,7 @@ export const StyledLink = styled('a', {
   lineHeight: '$24',
   color: '$link',
   textDecoration: 'none',
-  transition: 'all .2s',
+  transition: 'all .5s',
 
   '& svg': {
     marginLeft: '$2',
@@ -68,15 +76,20 @@ export const StyledLink = styled('a', {
     },
   },
 
+  '&:visited': {
+    color: '$linkVisited',
+    border: '1px solid red',
+
+    '& svg path': {
+      fill: '$linkVisited',
+    },
+  },
+
   '&:hover': {
     color: '$linkHover',
 
     '& svg path': {
       fill: '$linkHover',
     },
-  },
-
-  '&:visited': {
-    color: '$linkVisited',
   },
 });

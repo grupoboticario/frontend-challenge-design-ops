@@ -1,9 +1,11 @@
-import { styled } from "../../../stitches.config"
+import { styled } from '../../../stitches.config';
 
-import * as tokens from '@design-ops/design-system/tokens/foundation.json';
+export const Text = styled('p', {});
 
-export const Text = styled('p', {
-    backgroundColor: "$tertiary",
-    color: "$fourth",
+export const Title = styled('h1', {
+  fontSize: 'calc($xl * 2)',
+
+  '@desktop': {
+    fontSize: 'calc($xxxl * 2)',
+  },
 });
-

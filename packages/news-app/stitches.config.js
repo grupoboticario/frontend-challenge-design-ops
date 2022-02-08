@@ -24,7 +24,7 @@ export const defaultTheme = {
     sourceSansPro: 'Source Sans Pro, sans-serif',
     rubik: 'Rubik, sans-serif',
   },
-  "fontSizes": {
+  fontSizes: {
     xxs: "0.5rem",
     xs: "0.625rem",
     sm: "0.75rem",
@@ -94,6 +94,7 @@ export const defaultTheme = {
     22: "5.5rem",
     23: "5.75rem",
     24: "1.125rem",
+    25: "2.25rem",
   },
   lineHeights: {
     0: "0rem",
@@ -124,7 +125,7 @@ export const defaultTheme = {
   },
 }
 
-export const { styled, createTheme, css } = createStitches({
+export const { styled, createTheme, css, getCssText } = createStitches({
   theme: defaultTheme,
   media: {
     mobile: "(min-width: 520px)",

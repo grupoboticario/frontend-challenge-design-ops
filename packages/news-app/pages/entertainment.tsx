@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
-import { Header, HeadlineArticles, Line, Main, ArticlesList, Wrapper } from '../shared/components';
+import { Header, Main, ResultArticlesList } from '../shared/components';
 import { brazilTheme, portugalTheme } from '../stitches.config';
 
 import { NewsApi } from '../shared/services';
 import { turnToQueryString } from '../shared/helpers';
 
-const Home: NextPage = () => {
+const Entertainment: NextPage = () => {
   const [headlines, setHeadlines] = useState<any[]>([]);
-  const [latestNews, setLatestNews] = useState<any[]>([]);
 
   useEffect(() => {
     renderHeadlines();
-    renderLatestNews();
   }, []);
 
   const renderHeadlines = async () => {
@@ -27,31 +25,14 @@ const Home: NextPage = () => {
     setHeadlines(response.data.articles);
   };
 
-  const renderLatestNews = async () => {
-    const response = await NewsApi.getEveryNews({
-      queryString: turnToQueryString({
-        q: 'bitcoin',
-        pageSize: 6,
-      }),
-    });
-
-    setLatestNews(response.data.articles);
-  };
-
-  console.log(latestNews);
-
   return (
-    <div className="">
+    <div>
       <Header />
       <Main>
-        <HeadlineArticles articles={headlines} />
-        <Wrapper>
-          <Line />
-        </Wrapper>
-        <ArticlesList articles={latestNews} />
+        <ResultArticlesList title="Entertainment" articles={headlines} />
       </Main>
     </div>
   );
 };
 
-export default Home;
+export default Entertainment;
