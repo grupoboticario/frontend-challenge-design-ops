@@ -27,7 +27,7 @@ const Button = styled('button', {
   cursor: 'pointer',
 });
 
-export const MenuLocation = (props: MyMenuProps) => {
+export const MenuLocation = (props: MyMenuProps | undefined) => {
   const dispatch = useArticleDispatch();
 
   const changeLanguage = (lang: any) => {

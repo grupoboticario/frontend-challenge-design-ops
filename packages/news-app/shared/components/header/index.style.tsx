@@ -39,9 +39,7 @@ export const ActionButton = styled('button', {
 
   variants: {
     variant: {
-      hamburguer: {
-        display: '',
-      },
+      hamburguer: {},
       closeButton: {
         position: 'absolute',
         top: 0,

@@ -7,6 +7,7 @@ import * as S from './index.style';
 
 export const Header = () => {
   const [translateMenu, setTranslateMenu] = useState<any[]>([]);
+  const [hamburguerOpen, setHamburguerOpen] = useState<any>(false);
   const { language } = useArticleState();
   const dispatch = useArticleDispatch();
   const router = useRouter();
@@ -37,21 +38,41 @@ export const Header = () => {
     });
 
     router.push('/results');
+  };
 
-    // console.log(inputValue);
+  const clickToOpenMenu = () => {
+    setHamburguerOpen(true);
+  };
+
+  const clickToCloseMenu = () => {
+    setHamburguerOpen(false);
   };
 
   return (
     <S.StyledHeader>
       <Wrapper>
         <S.TopMobile>
-          <S.ActionButton variant="hamburguer">
+          <S.ActionButton
+            variant="hamburguer"
+            onClick={clickToOpenMenu}
+            css={{
+              display: `${hamburguerOpen == true ? 'none' : 'block'}`,
+              '@desktop': {},
+            }}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="white" />
             </svg>
           </S.ActionButton>
           <Logo css={{ zIndex: 3 }} />
-          <S.ActionButton variant="closeButton">
+          <S.ActionButton
+            variant="closeButton"
+            onClick={clickToCloseMenu}
+            css={{
+              display: `${hamburguerOpen == true ? 'block' : 'none'}`,
+              '@desktop': {},
+            }}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
@@ -78,7 +99,16 @@ export const Header = () => {
         </S.Flex>
       </Wrapper>
 
-      <Nav navItems={translateMenu} />
+      <Nav
+        navItems={translateMenu}
+        css={{
+          left: `${hamburguerOpen == true ? '0' : '-100%'}`,
+          '@desktop': {
+            display: 'block',
+            left: 0,
+          },
+        }}
+      />
     </S.StyledHeader>
   );
 };
