@@ -10,28 +10,28 @@ import Layout from './_layout';
 import { useArticleState } from '../shared/store';
 
 const Business: NextPage = () => {
-  const [headlines, setHeadlines] = useState<any[]>([]);
-  const { language } = useArticleState();
+  const [searchResult, setSearchResult] = useState<any[]>([]);
+  const { search, language } = useArticleState();
 
   useEffect(() => {
-    renderHeadlines();
-  }, [language]);
+    renderSearch();
+  }, []);
 
-  const renderHeadlines = async () => {
-    const response = await NewsApi.getTopHeadlines({
+  const renderSearch = async () => {
+    const response = await NewsApi.getEveryNews({
       queryString: turnToQueryString({
-        category: 'business',
-        country: language.name,
-        pageSize: 10,
+        q: search.text,
+        language: language.name,
+        pageSize: 6,
       }),
     });
 
-    setHeadlines(response.data.articles);
+    setSearchResult(response.data.articles);
   };
 
   return (
     <Layout>
-      <ResultArticlesList title="Business" articles={headlines} />
+      <ResultArticlesList title="Results" articles={searchResult} />
     </Layout>
   );
 };

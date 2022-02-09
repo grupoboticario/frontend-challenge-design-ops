@@ -6,12 +6,6 @@ export const defaultTheme = {
     textMenu: "#FFF",
     textAuxiliar:"#666",
     line:"#CCC",
-    theme: "#38446C",
-    menuActive: "#526092",
-    menuHover: "#6277C2",
-    link: "#A53737",
-    linkHover: "#D10B0B",
-    linkVisited: "#693939"
   },
   radii: {
     sharp: "0px",
@@ -148,6 +142,17 @@ export const { styled, createTheme, css, getCssText } = createStitches({
     }),
   }
 });
+
+export const usTheme = createTheme({
+  colors: {
+    theme: "#38446C",
+    menuActive: "#526092",
+    menuHover: "#6277C2",
+    link: "#A53737",
+    linkHover: "#D10B0B",
+    linkVisited: "#693939"
+  },
+})
 
 export const brazilTheme = createTheme({
   colors: {

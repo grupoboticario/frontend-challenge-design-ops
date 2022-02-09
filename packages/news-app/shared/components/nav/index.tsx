@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { styled } from '../../../stitches.config';
 import { Flex, Wrapper } from '../';
 import Link from 'next/link';
@@ -38,8 +39,9 @@ const TextMenu = styled('a', {
   color: '$textMenu',
   fontSize: '$4',
   textDecoration: 'none',
+  transition: 'all .2s',
 
-  '&:hover': {
+  '&:hover, &.active': {
     backgroundColor: '$menuHover',
   },
 
@@ -49,6 +51,7 @@ const TextMenu = styled('a', {
 });
 
 export const Nav = ({ navItems }: { navItems: any[] }) => {
+  const router = useRouter();
   return (
     <StyledNav>
       <Wrapper>
@@ -57,7 +60,12 @@ export const Nav = ({ navItems }: { navItems: any[] }) => {
             {navItems.map((navItem, i) => (
               <StyledListItem key={`nav-item-${i}`}>
                 <Link href={navItem.href} passHref>
-                  <TextMenu title="Go to home page">{navItem.name}</TextMenu>
+                  <TextMenu
+                    title="Go to home page"
+                    className={router.pathname == navItem.href ? 'active' : ''}
+                  >
+                    {navItem.name}
+                  </TextMenu>
                 </Link>
               </StyledListItem>
             ))}

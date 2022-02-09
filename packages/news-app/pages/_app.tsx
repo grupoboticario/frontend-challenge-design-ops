@@ -1,5 +1,6 @@
-import type { AppProps } from "next/app";
-import { globalStyles } from "../stitches.config";
+import type { AppProps } from 'next/app';
+import { ArticleProvider } from '../shared/store';
+import { globalStyles } from '../stitches.config';
 
 /**
  * Você pode importar os tokens de algumas coisas, como abaixo
@@ -12,8 +13,14 @@ import { globalStyles } from "../stitches.config";
 // import "design-system/dist/oboticario/index.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles()
-  return <Component {...pageProps} />;
+  globalStyles();
+  return (
+    <>
+      <ArticleProvider>
+        <Component {...pageProps} />
+      </ArticleProvider>
+    </>
+  );
 }
 
 export default MyApp;

@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
-import { Header, Main, ResultArticlesList } from '../shared/components';
-import { brazilTheme, portugalTheme } from '../stitches.config';
+import { ResultArticlesList } from '../shared/components';
 
 import { NewsApi } from '../shared/services';
 import { turnToQueryString } from '../shared/helpers';
+import Layout from './_layout';
+import { useArticleState } from '../shared/store';
 
 const Technology: NextPage = () => {
   const [headlines, setHeadlines] = useState<any[]>([]);
+  const { language } = useArticleState();
 
   useEffect(() => {
     renderHeadlines();
-  }, []);
+  }, [language]);
 
   const renderHeadlines = async () => {
     const response = await NewsApi.getTopHeadlines({
       queryString: turnToQueryString({
-        country: 'us',
-        pageSize: 3,
+        category: 'technology',
+        country: language.name,
+        pageSize: 10,
       }),
     });
 
@@ -26,12 +29,9 @@ const Technology: NextPage = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <Main>
-        <ResultArticlesList title="Technology" articles={headlines} />
-      </Main>
-    </div>
+    <Layout>
+      <ResultArticlesList title="Technology" articles={headlines} />
+    </Layout>
   );
 };
 

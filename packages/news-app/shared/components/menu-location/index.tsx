@@ -1,7 +1,7 @@
 import { styled } from '../../../stitches.config';
 import type * as Stitches from '@stitches/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useArticleDispatch } from '../../store';
 
 type MyMenuProps = { css?: Stitches.CSS };
 
@@ -24,34 +24,31 @@ const ListItem = styled('li', {
 const Button = styled('button', {
   background: 'none',
   border: 0,
+  cursor: 'pointer',
 });
 
 export const MenuLocation = (props: MyMenuProps) => {
-  const [language, setLanguage] = useState('');
+  const dispatch = useArticleDispatch();
 
   const changeLanguage = (lang: any) => {
-    console.log(lang);
-
-    window.localStorage.setItem('language', lang);
-    if (lang === 'brazilTheme') {
-      setLanguage(lang);
-    } else if (lang === 'portugalTheme') {
-      setLanguage(lang);
-    } else {
-      setLanguage('defaulTheme');
-    }
+    dispatch({
+      type: 'saveLanguage',
+      value: {
+        name: lang,
+      },
+    });
   };
 
   return (
     <StyledMenuLocation {...props}>
       <List>
         <ListItem>
-          <Button onClick={() => changeLanguage('brazilTheme')}>
+          <Button onClick={() => changeLanguage('br')}>
             <Image src="/images/icons/flag-br.svg" width="40" height="28" alt="Brazil flag icon" />
           </Button>
         </ListItem>
         <ListItem>
-          <Button onClick={() => changeLanguage('defaulTheme')}>
+          <Button onClick={() => changeLanguage('us')}>
             <Image
               src="/images/icons/flag-us.svg"
               width="40"
@@ -61,7 +58,7 @@ export const MenuLocation = (props: MyMenuProps) => {
           </Button>
         </ListItem>
         <ListItem>
-          <Button onClick={() => changeLanguage('portugalTheme')}>
+          <Button onClick={() => changeLanguage('pt')}>
             <Image
               src="/images/icons/flag-pt.svg"
               width="40"

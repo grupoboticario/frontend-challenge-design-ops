@@ -1,8 +1,46 @@
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { MenuLocation, Form, Wrapper, Nav, Logo } from '../';
-import { NAV_MENU } from '../../constants';
+import { NAV_MENU_BR, NAV_MENU_ENG, NAV_MENU_PT } from '../../constants';
+import { useArticleDispatch, useArticleState } from '../../store';
 import * as S from './index.style';
 
 export const Header = () => {
+  const [translateMenu, setTranslateMenu] = useState<any[]>([]);
+  const { language } = useArticleState();
+  const dispatch = useArticleDispatch();
+  const router = useRouter();
+
+  useEffect(() => {
+    translateNavMenu();
+  }, [language]);
+
+  const translateNavMenu = () => {
+    if (language.name === 'br') {
+      setTranslateMenu(NAV_MENU_BR);
+    } else if (language.name === 'us') {
+      setTranslateMenu(NAV_MENU_ENG);
+    } else if (language.name === 'pt') {
+      setTranslateMenu(NAV_MENU_PT);
+    }
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const inputValue = e.target.search.value;
+
+    dispatch({
+      type: 'saveSearch',
+      value: {
+        text: inputValue,
+      },
+    });
+
+    router.push('/results');
+
+    // console.log(inputValue);
+  };
+
   return (
     <S.StyledHeader>
       <Wrapper>
@@ -29,6 +67,7 @@ export const Header = () => {
             }}
           />
           <Form
+            onSubmit={handleSubmit}
             css={{
               order: 4,
               margin: '30px 0 -70px 0',
@@ -39,7 +78,7 @@ export const Header = () => {
         </S.Flex>
       </Wrapper>
 
-      <Nav navItems={NAV_MENU} />
+      <Nav navItems={translateMenu} />
     </S.StyledHeader>
   );
 };

@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
-import { Header, Main, ResultArticlesList } from '../shared/components';
+import { ResultArticlesList } from '../shared/components';
 
 import { NewsApi } from '../shared/services';
 import { turnToQueryString } from '../shared/helpers';
+import Layout from './_layout';
+import { useArticleState } from '../shared/store';
 
 const Sports: NextPage = () => {
   const [headlines, setHeadlines] = useState<any[]>([]);
+  const { language } = useArticleState();
 
   useEffect(() => {
     renderHeadlines();
-  }, []);
+  }, [language]);
 
   const renderHeadlines = async () => {
     const response = await NewsApi.getTopHeadlines({
       queryString: turnToQueryString({
-        country: 'us',
-        pageSize: 3,
+        category: 'sports',
+        country: language.name,
+        pageSize: 10,
       }),
     });
 
@@ -25,12 +29,9 @@ const Sports: NextPage = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <Main>
-        <ResultArticlesList title="Sports" articles={headlines} />
-      </Main>
-    </div>
+    <Layout>
+      <ResultArticlesList title="Sports" articles={headlines} />
+    </Layout>
   );
 };
 
