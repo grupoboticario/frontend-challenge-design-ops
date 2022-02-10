@@ -27,18 +27,16 @@ Onde deverá ser desenvolvido a aplicação como no Layout. Já preparado com o 
 
 ## Tecnologias
 
-Algumas tecnologias que usamos aqui. Mas fique a vontade pra desenvolver com o que estiver mais familiarizado.
+Algumas tecnologias que usamos aqui.
 
-- Git
-  - git-cz
-  - semantic commit
-- JS
-  - [Next](https://nextjs.org)
-  - [TurboRepo](https://turborepo.org/)
-  - [Stitches](https://stitches.dev)
-  - [radix-ui.com](https://radix-ui.com)
-  - [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
-  - [SWR](https://swr.vercel.app/)
+- [Stitches](https://stitches.dev)
+- [radix-ui.com](https://radix-ui.com)
+- [Next](https://nextjs.org)
+- [TurboRepo](https://turborepo.org/)
+- [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
+- [SWR](https://swr.vercel.app/)
+- git-cz
+- semantic commit
 
 ## Comandos
 
@@ -50,6 +48,13 @@ Algumas tecnologias que usamos aqui. Mas fique a vontade pra desenvolver com o q
 
 ## Como entregar?
 
-Crie um novo fork e branch com seu nome-sobrenome e faça um pull request quando estiver pronto. Iremos fazer code review.
+1. Crie um novo fork e branch com seu nome-sobrenome e faça um pull request quando estiver pronto. Iremos fazer code review.
 
-> 🎉 Se possível entregar uma URL em algum serviço de hospedagem (Vercel, Netlify)
+2. Entregar em uma URL pública na Vercel 🚀
+   https://vercel.com/docs/concepts/git/monorepos#step-3:-set-the-root-directory
+
+### Publicar 🚀
+
+```bash
+npx vercel --prod
+```
