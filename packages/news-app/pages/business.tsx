@@ -1,54 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
-import Layout from './_layout';
 
-import { HeadlineArticles, Line, ArticlesList, Wrapper } from '../shared/components';
+import { ResultArticlesList } from '../shared/components';
 
 import { NewsApi } from '../shared/services';
 import { turnToQueryString } from '../shared/helpers';
+import Layout from './_layout';
 import { useArticleState } from '../shared/store';
 
-const Home: NextPage = () => {
+const Business: NextPage = () => {
   const [headlines, setHeadlines] = useState<any[]>([]);
-  const [latestNews, setLatestNews] = useState<any[]>([]);
+  const [pageSize, setPageSize] = useState<any>(10);
   const { language } = useArticleState();
 
   useEffect(() => {
     renderHeadlines();
-    renderLatestNews();
-  }, [language]);
+  }, [language, pageSize]);
 
   const renderHeadlines = async () => {
     const response = await NewsApi.getTopHeadlines({
       queryString: turnToQueryString({
+        category: 'business',
         country: language.name,
-        pageSize: 3,
+        pageSize: pageSize,
       }),
     });
 
     setHeadlines(response.data.articles);
   };
 
-  const renderLatestNews = async () => {
-    const response = await NewsApi.getEveryNews({
-      queryString: turnToQueryString({
-        q: 'news',
-        pageSize: 6,
-      }),
-    });
-
-    setLatestNews(response.data.articles);
+  const loadMoreArticles = () => {
+    setPageSize(pageSize + 10);
   };
 
   return (
     <Layout>
-      <HeadlineArticles articles={headlines} />
-      <Wrapper>
-        <Line />
-      </Wrapper>
-      <ArticlesList articles={latestNews} />
+      <ResultArticlesList title="Business" articles={headlines} onClick={loadMoreArticles} />
     </Layout>
   );
 };
 
-export default Home;
+export default Business;

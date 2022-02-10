@@ -5,7 +5,20 @@
     },
     "secondary": {
       "value": "#FFFFFF"
+    },
+    "text": {
+      "value": "#222222"
+    },
+    "text-menu": {
+      "value": "#ffffff"
+    },
+    "text-auxiliar": {
+      "value": "#666666"
+    },
+    "line": {
+      "value": "#cccccc"
     }
+
   },
   "radii": {
     "sharp": { "value": "0px" },
