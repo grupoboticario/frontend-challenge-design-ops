@@ -10,27 +10,33 @@ import { useArticleState } from '../shared/store';
 
 const Science: NextPage = () => {
   const [headlines, setHeadlines] = useState<any[]>([]);
+  const [pageSize, setPageSize] = useState<any>(10);
+
   const { language } = useArticleState();
 
   useEffect(() => {
     renderHeadlines();
-  }, [language]);
+  }, [language, pageSize]);
 
   const renderHeadlines = async () => {
     const response = await NewsApi.getTopHeadlines({
       queryString: turnToQueryString({
         category: 'science',
         country: language.name,
-        pageSize: 10,
+        pageSize: pageSize,
       }),
     });
 
     setHeadlines(response.data.articles);
   };
 
+  const loadMoreArticles = () => {
+    setPageSize(pageSize + 10);
+  };
+
   return (
     <Layout>
-      <ResultArticlesList title="Science" articles={headlines} />
+      <ResultArticlesList title="Science" articles={headlines} onClick={loadMoreArticles} />
     </Layout>
   );
 };

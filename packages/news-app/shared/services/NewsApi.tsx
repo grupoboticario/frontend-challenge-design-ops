@@ -7,10 +7,10 @@ const getTopHeadlines = ({ queryString }: { queryString?: any }) => {
   });
 };
 
-const getHeadlineSources = () => {
+const getHeadlineSources = ({ queryString }: { queryString?: any }) => {
   return httpRequest({
     method: 'get',
-    url: `/top-headlines/sources`,
+    url: `/top-headlines/sources${queryString}`,
   });
 };
 

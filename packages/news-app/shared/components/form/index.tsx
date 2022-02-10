@@ -5,10 +5,16 @@ type MyFormProps = { css?: Stitches.CSS; onSubmit?: any };
 
 export const Form = (props: MyFormProps) => {
   return (
-    <S.StyledForm {...props}>
+    <S.StyledForm {...props} role="search">
       <S.Fieldset>
         <S.Label htmlFor="search"></S.Label>
-        <S.Input type="text" name="search" id="search" placeholder="Search" />
+        <S.Input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search"
+          aria-label="Search your news"
+        />
         <S.ButtonSubmit type="submit">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path

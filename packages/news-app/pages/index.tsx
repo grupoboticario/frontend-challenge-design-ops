@@ -33,7 +33,6 @@ const Home: NextPage = () => {
     const response = await NewsApi.getEveryNews({
       queryString: turnToQueryString({
         q: 'news',
-        language: language.name,
         pageSize: 6,
       }),
     });

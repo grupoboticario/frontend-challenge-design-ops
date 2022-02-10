@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { getCssText } from '../stitches.config';
-import { brazilTheme, portugalTheme } from '../stitches.config';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -20,7 +19,7 @@ class MyDocument extends Document {
           />
           <style id="idStitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
         </Head>
-        <body className={portugalTheme}>
+        <body>
           <Main />
           <NextScript />
         </body>

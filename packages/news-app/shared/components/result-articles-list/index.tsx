@@ -1,5 +1,5 @@
 import { styled } from '../../../stitches.config';
-import { Wrapper, Card, Title } from '..';
+import { Wrapper, Card, Button, Text } from '..';
 
 const List = styled('ul', {
   listStyle: 'none',
@@ -11,6 +11,8 @@ const ListItem = styled('li', {
 
   '& figure': {
     flexBasis: 100,
+    flexShrink: 0,
+
     width: 272,
     height: 102,
   },
@@ -18,20 +20,31 @@ const ListItem = styled('li', {
   '@desktop': {
     '& figure': {
       flexBasis: 272,
-      flexShrink: 0,
       width: 272,
       height: 102,
     },
   },
 });
 
-export const ResultArticlesList = ({ title, articles }: { title: string; articles: any[] }) => {
+export const ResultArticlesList = ({
+  articles,
+  onClick,
+  title,
+}: {
+  articles: any[];
+  title?: string;
+  onClick?: any;
+}) => {
   return (
-    <Wrapper>
-      <Title as="h1">{title}</Title>
-      <List>
+    <Wrapper role="feed">
+      {title && (
+        <Text as="h1" css={{ marginBottom: '$9' }}>
+          {title}
+        </Text>
+      )}
+      <List role="list">
         {articles.map((article, i) => (
-          <ListItem key={`article-item-${i}`}>
+          <ListItem key={`article-item-${i}`} role="listitem">
             <Card
               src={article.urlToImage}
               url={article.url}
@@ -41,6 +54,7 @@ export const ResultArticlesList = ({ title, articles }: { title: string; article
           </ListItem>
         ))}
       </List>
+      <Button onClick={onClick}>Load more articles</Button>
     </Wrapper>
   );
 };

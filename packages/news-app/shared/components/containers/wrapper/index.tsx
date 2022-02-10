@@ -1,6 +1,6 @@
 import { styled } from '../../../../stitches.config';
 
-export const Wrapper = styled('div', {
+export const StyledWrapper = styled('div', {
   px: '$8',
 
   '@desktop': {
@@ -10,6 +10,18 @@ export const Wrapper = styled('div', {
   },
 });
 
-(children: any) => {
-  <Wrapper>{children}</Wrapper>;
+export const Wrapper = ({
+  css,
+  children,
+  role = 'presentation',
+}: {
+  css?: any;
+  children: any;
+  role?: string;
+}) => {
+  return (
+    <StyledWrapper role={role} css={css}>
+      {children}
+    </StyledWrapper>
+  );
 };

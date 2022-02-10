@@ -2,5 +2,9 @@ import { styled } from '../../../stitches.config';
 
 export const Line = styled('hr', {
   color: '$line',
-  my: '$15',
+  my: '$9',
+
+  '@desktop': {
+    my: '$15',
+  },
 });

@@ -12,7 +12,7 @@ export const defaultTheme = {
     small: "4px",
     medium: "6px",
     large: "16px",
-    pill: "100%"
+    pill: "50px"
   },
   fonts: {
     sourceSansPro: 'Source Sans Pro, sans-serif',

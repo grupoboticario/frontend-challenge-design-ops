@@ -15,6 +15,13 @@ const List = styled('ul', {
   },
 });
 const ListItem = styled('li', {
+  marginBottom: '$4',
+
+  '&:first-child figure': {
+    width: 309,
+    height: 157,
+  },
+
   '@desktop': {
     width: 368,
     height: 232,
@@ -43,9 +50,9 @@ export const HeadlineArticles = ({ articles }: { articles: any[] }) => {
   return (
     <Wrapper>
       <Title as="h1">Headlines</Title>
-      <List>
+      <List role="list">
         {articles.map((article, i) => (
-          <ListItem key={`headline-article-item-${i}`}>
+          <ListItem key={`headline-article-item-${i}`} role="listitem">
             <Card
               src={article.urlToImage}
               alt="Here is the image alt description"

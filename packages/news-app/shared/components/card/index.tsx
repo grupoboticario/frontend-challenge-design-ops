@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/link-passhref */
-import Image from 'next/image';
 import * as S from './index.style';
 
 export const Card = ({
@@ -22,7 +21,7 @@ export const Card = ({
 }) => {
   return (
     <>
-      <S.StyledCard variant={variant}>
+      <S.StyledCard variant={variant} role="article">
         <S.StyledImage>
           <img src={src} alt={alt} />
         </S.StyledImage>

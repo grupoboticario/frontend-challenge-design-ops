@@ -2,7 +2,7 @@ export * from './button';
 export * from './text';
 export * from './card';
 export * from './burger-button';
-export { Flex, Wrapper, Grid, Main } from './containers';
+export { Flex, Wrapper, Main } from './containers';
 export { Form } from './form';
 export { Header } from './header';
 export { MenuLocation } from './menu-location';

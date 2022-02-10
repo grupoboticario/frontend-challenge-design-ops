@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
-import { ResultArticlesList } from '../shared/components';
-import { brazilTheme, portugalTheme } from '../stitches.config';
+import { ResultArticlesList, Text, Wrapper } from '../shared/components';
 
 import { NewsApi } from '../shared/services';
 import { turnToQueryString } from '../shared/helpers';
@@ -15,7 +14,7 @@ const Business: NextPage = () => {
 
   useEffect(() => {
     renderSearch();
-  }, []);
+  }, [search]);
 
   const renderSearch = async () => {
     const response = await NewsApi.getEveryNews({
@@ -31,7 +30,13 @@ const Business: NextPage = () => {
 
   return (
     <Layout>
-      <ResultArticlesList title="Results" articles={searchResult} />
+      <Wrapper>
+        <Text as="h1" css={{ marginBottom: '$9' }}>
+          Results for: {search.text}
+        </Text>
+        {searchResult.length == 0 && <Text as="p">Try to search for another terms</Text>}
+      </Wrapper>
+      <ResultArticlesList articles={searchResult} />
     </Layout>
   );
 };

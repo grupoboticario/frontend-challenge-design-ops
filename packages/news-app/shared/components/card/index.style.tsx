@@ -1,6 +1,6 @@
 import { styled } from '../../../stitches.config';
 
-export const StyledCard = styled('div', {
+export const StyledCard = styled('article', {
   display: 'flex',
 
   variants: {
@@ -8,8 +8,13 @@ export const StyledCard = styled('div', {
       highlight: {
         flexDirection: 'column',
         '& figure': {
-          width: 368,
-          height: 120,
+          width: 304,
+          height: 102,
+
+          '@desktop': {
+            width: 368,
+            height: 120,
+          },
         },
       },
       resultLIst: {
@@ -26,7 +31,6 @@ export const StyledImage = styled('figure', {
   borderRadius: '$medium',
 
   '& img': {
-    maxWidth: '100%',
     borderRadius: '$medium',
   },
 });
@@ -54,8 +58,11 @@ export const StyledText = styled('p', {
         fontSize: '$lg',
       },
       title: {
-        height: 68,
+        height: 49,
         overflow: 'hidden',
+        '@desktop': {
+          height: 68,
+        },
       },
     },
   },
