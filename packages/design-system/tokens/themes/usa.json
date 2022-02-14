@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "theme": {
+      "value": "#38446C"
+    },
+    "menu-active": {
+      "value": "#526092"
+    },
+    "menu-hover": {
+      "value": "#6277C2"
+    },
+    "link": {
+      "value": "#A53737"
+    },
+    "link-hover": {
+      "value": "#D10B0B"
+    },
+    "link-visited": {
+      "value": "#693939"
+    }
+  }
+}

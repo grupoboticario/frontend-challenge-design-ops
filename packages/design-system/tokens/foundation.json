@@ -1,10 +1,16 @@
 {
   "colors": {
-    "primary": {
-      "value": "#000000"
+    "text": {
+      "value": "#222222"
     },
-    "secondary": {
+    "text-menu": {
       "value": "#FFFFFF"
+    },
+    "text-auxiliar": {
+      "value": "#666666"
+    },
+    "line": {
+      "value": "#CCCCCC"
     }
   },
   "radii": {
