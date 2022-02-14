@@ -1,22 +1,10 @@
 {
   "colors": {
-    "theme": {
-      "value": "#386C43"
-    },
-    "menu-active": {
-      "value": "#529259"
-    },
-    "menu-hover": {
-      "value": "#61B96A"
-    },
-    "link": {
-      "value": "#1687AB"
-    },
-    "link-hover": {
-      "value": "#00A6DB"
-    },
-    "link-visited": {
-      "value": "#295F71"
-    }
+    "theme": "#386C43",
+    "menu-active": "#529259",
+    "menu-hover": "#61B96A",
+    "link": "#1687AB",
+    "link-hover": "#00A6DB",
+    "link-visited": "#295F71"
   }
 }

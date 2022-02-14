@@ -1,70 +1,62 @@
 {
   "colors": {
-    "text": {
-      "value": "#222222"
-    },
-    "text-menu": {
-      "value": "#FFFFFF"
-    },
-    "text-auxiliar": {
-      "value": "#666666"
-    },
-    "line": {
-      "value": "#CCCCCC"
-    }
+    "text": "#222222",
+    "text-menu": "#FFFFFF",
+    "text-auxiliar": "#666666",
+    "line": "#CCCCCC"
   },
   "radii": {
-    "sharp": { "value": "0px" },
-    "small": { "value": "4px" },
-    "medium": { "value": "8px" },
-    "large": { "value": "16px" },
-    "pill": { "value": "100%" }
+    "sharp": "0px",
+    "small": "4px",
+    "medium": "8px",
+    "large": "16px",
+    "pill": "100%"
   },
   "fontSizes": {
-    "xxs": { "value": "0.5rem" },
-    "xs": { "value": "0.625rem" },
-    "sm": { "value": "0.75rem" },
-    "md": { "value": "0.875rem" },
-    "lg": { "value": "1rem" },
-    "xl": { "value": "1.125rem" },
-    "xxl": { "value": "1.25rem" },
-    "2xl": { "value": "1.5rem" },
-    "3xl": { "value": "2.25rem" },
-    "4xl": { "value": "3rem" },
-    "5xl": { "value": "4.5rem" },
-    "6xl": { "value": "6rem" },
-    "7xl": { "value": "8rem" }
+    "xxs": "0.5rem",
+    "xs": "0.625rem",
+    "sm": "0.75rem",
+    "md": "0.875rem",
+    "lg": "1rem",
+    "xl": "1.125rem",
+    "xxl": "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "2.25rem",
+    "4xl": "3rem",
+    "5xl": "4.5rem",
+    "6xl": "6rem",
+    "7xl": "8rem"
   },
   "sizes": {
-    "0": { "value": "0rem" },
-    "1": { "value": "0.25rem" },
-    "2": { "value": "0.5rem" },
-    "3": { "value": "0.75rem" },
-    "4": { "value": "1rem" },
-    "5": { "value": "1.25rem" },
-    "6": { "value": "1.5rem" },
-    "7": { "value": "1.75rem" },
-    "8": { "value": "2rem" },
-    "9": { "value": "2.25rem" },
-    "10": { "value": "2.5rem" },
-    "11": { "value": "2.75rem" },
-    "12": { "value": "3rem" },
-    "13": { "value": "3.25rem" },
-    "14": { "value": "3.5rem" },
-    "15": { "value": "3.75rem" },
-    "16": { "value": "4rem" },
-    "17": { "value": "4.25rem" },
-    "18": { "value": "4.5rem" },
-    "19": { "value": "4.75rem" },
-    "20": { "value": "5rem" },
-    "21": { "value": "5.25rem" },
-    "22": { "value": "5.5rem" },
-    "23": { "value": "5.75rem" }
+    "0": "0rem",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "7": "1.75rem",
+    "8": "2rem",
+    "9": "2.25rem",
+    "10": "2.5rem",
+    "11": "2.75rem",
+    "12": "3rem",
+    "13": "3.25rem",
+    "14": "3.5rem",
+    "15": "3.75rem",
+    "16": "4rem",
+    "17": "4.25rem",
+    "18": "4.5rem",
+    "19": "4.75rem",
+    "20": "5rem",
+    "21": "5.25rem",
+    "22": "5.5rem",
+    "23": "5.75rem"
   },
   "media": {
-    "mobile": { "value": "(min-width: 520px)" },
-    "tablet": { "value": "(min-width: 768px)" },
-    "desktop": { "value": "(min-width: 992px)" },
-    "ultrawide": { "value": "(min-width: 1400px)" }
+    "mobile": "(min-width: 520px)",
+    "tablet": "(min-width: 768px)",
+    "desktop": "(min-width: 992px)",
+    "ultrawide": "(min-width: 1400px)"
   }
 }

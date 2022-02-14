@@ -1,22 +1,10 @@
 {
   "colors": {
-    "theme": {
-      "value": "#6C3838"
-    },
-    "menu-active": {
-      "value": "#925252"
-    },
-    "menu-hover": {
-      "value": "#B85F5F"
-    },
-    "link": {
-      "value": "#1C8A27"
-    },
-    "link-hover": {
-      "value": "#0EB51E"
-    },
-    "link-visited": {
-      "value": "#1F5724"
-    }
+    "theme": "#6C3838",
+    "menu-active": "#925252",
+    "menu-hover": "#B85F5F",
+    "link": "#1C8A27",
+    "link-hover": "#0EB51E",
+    "link-visited": "#1F5724"
   }
 }
