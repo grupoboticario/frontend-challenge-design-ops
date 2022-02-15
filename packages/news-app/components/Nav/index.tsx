@@ -11,7 +11,7 @@ import { Theme } from "./types";
 export default function Nav() {
   const { resolvedTheme } = useTheme();
 
-  const theme: Theme = resolvedTheme?.replace("Theme", "") || "usTheme";
+  const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
 
   return (
     <NavStyled>
