@@ -1,10 +1,14 @@
-import { FormControl, InputAdornment, OutlinedInput } from "@mui/material";
-import { useMediaQuery } from "react-responsive";
+import {
+  FormControl,
+  InputAdornment,
+  OutlinedInput,
+  useMediaQuery,
+} from "@mui/material";
 import { device } from "../../../assets/styles/breakpoints";
 import { SearchIconStyled } from "./index.styles";
 
 export default function InputSearch() {
-  const isTablet = useMediaQuery({ query: device.tablet });
+  const isTablet = useMediaQuery(device.tablet);
 
   return (
     <FormControl
