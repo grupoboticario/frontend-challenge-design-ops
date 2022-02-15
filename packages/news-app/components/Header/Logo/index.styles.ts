@@ -12,9 +12,11 @@ export const LogoStyled = styled(Box, {
 
 export const World = styled(Text, {
   color: "$text-menu",
+  letterSpacing: "0.08em",
 });
 
 export const News = styled(Text, {
   color: "$text-menu",
+  letterSpacing: "0.08em",
   fontWeight: "bold",
 });
