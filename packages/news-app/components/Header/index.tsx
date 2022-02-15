@@ -13,13 +13,15 @@ const Header = () => {
     <>
       <ContainerStyled>
         <HeaderStyled>
-          <IconButton
-            aria-label="open menu"
-            component="span"
-            sx={{ color: "white" }}
-          >
-            <FaBars />
-          </IconButton>
+          {!isTablet && (
+            <IconButton
+              aria-label="open menu"
+              component="span"
+              sx={{ color: "white" }}
+            >
+              <FaBars />
+            </IconButton>
+          )}
           <Logo />
           {isTablet && <InputSearch />}
           <Flags />
