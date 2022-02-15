@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Flags = () => {
   const { setTheme, resolvedTheme } = useTheme();
-  const [flags, setFlags] = useState([""]);
+  const [flags, setFlags] = useState<string[] | []>([]);
 
   useEffect(() => {
     setFlags(
@@ -28,6 +28,7 @@ const Flags = () => {
             alt={`${flag} flag`}
             src={`/${flag}.png`}
             onClick={() => handleTheme(flag)}
+            sx={{ cursor: "pointer" }}
           />
         );
       })}
