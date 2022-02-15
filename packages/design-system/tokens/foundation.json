@@ -54,9 +54,13 @@
     "23": "5.75rem"
   },
   "media": {
-    "mobile": "(min-width: 520px)",
+    "mobileS": "(min-width: 320px)",
+    "mobileM": "(min-width: 375px)",
+    "mobileL": "(min-width: 425px)",
     "tablet": "(min-width: 768px)",
-    "desktop": "(min-width: 992px)",
-    "ultrawide": "(min-width: 1400px)"
+    "laptop": "(min-width: 1024px)",
+    "laptopL": "(min-width: 1440px)",
+    "desktop": "(min-width: 2560px)",
+    "desktopL": "(min-width: 2560px)"
   }
 }
