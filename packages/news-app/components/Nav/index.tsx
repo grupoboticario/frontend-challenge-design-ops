@@ -5,15 +5,21 @@ import {
   MenuItem,
   NavStyled,
 } from "./index.styles";
+import { useTheme } from "next-themes";
+import { Theme } from "./types";
 
 export default function Nav() {
+  const { resolvedTheme } = useTheme();
+
+  const theme: Theme = resolvedTheme?.replace("Theme", "") || "usTheme";
+
   return (
     <NavStyled>
       <ContainerStyled>
-        {menuItems.map((item) => {
+        {menuItems.map(({ id, label }) => {
           return (
-            <MenuItem key={item}>
-              <LabelMenuItem>{item}</LabelMenuItem>
+            <MenuItem key={id}>
+              <LabelMenuItem>{label[theme]}</LabelMenuItem>
             </MenuItem>
           );
         })}

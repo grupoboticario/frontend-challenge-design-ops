@@ -10,9 +10,14 @@ import {
 } from "./index.styles";
 import { BsX } from "react-icons/bs";
 import { DrawerContext } from "../../../context/DrawerContext";
+import { useTheme } from "next-themes";
+import { Theme } from "../types";
 
 export default function DrawerMenu() {
   const { isOpen, setIsOpen } = useContext(DrawerContext);
+  const { resolvedTheme } = useTheme();
+
+  const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
 
   const toggleDrawer = () => {
     setIsOpen(false);
@@ -38,9 +43,9 @@ export default function DrawerMenu() {
         </IconButton>
       </Box>
       <List>
-        {menuItems.map((text, index) => (
-          <ListItemStyled key={index}>
-            <ListItemTextStyled primary={text} />
+        {menuItems.map(({ id, label }) => (
+          <ListItemStyled key={id}>
+            <ListItemTextStyled primary={label[theme]} />
           </ListItemStyled>
         ))}
       </List>
