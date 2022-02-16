@@ -1,7 +1,10 @@
 import { device } from "@assets/styles/breakpoints";
 import Text from "@components/Text";
 import { Box, useMediaQuery } from "@mui/material";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { textStyle } from "types/text";
+import { Theme } from "types/theme";
 import {
   Category,
   IconLink,
@@ -11,7 +14,17 @@ import {
   Wrapper,
 } from "./index.styles";
 
-type NewCardProps = {
+type LinkReadFullArticleTexts = {
+  [x: string]: string;
+};
+
+const linkReadFullArticleTexts: LinkReadFullArticleTexts = {
+  pt: "Ler o artigo completo",
+  br: "Ler o artigo completo",
+  us: "Read full article",
+};
+
+type NewsCardProps = {
   flexDirection?: "row" | "column";
   flexBoxImage?: number;
   flexBoxTitle?: number;
@@ -25,7 +38,7 @@ type NewCardProps = {
   showPublishedDate?: boolean;
 };
 
-export default function NewCard({
+export default function NewsCard({
   flexDirection = "row",
   flexBoxImage = 1,
   flexBoxTitle = 1,
@@ -37,8 +50,22 @@ export default function NewCard({
   linkFullArticle,
   publishedDate,
   showPublishedDate = false,
-}: NewCardProps) {
+}: NewsCardProps) {
   const isTablet = useMediaQuery(device.tablet);
+
+  const { resolvedTheme } = useTheme();
+  const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
+  const [linkReadFullArticleText, setLinkReadFullArticleText] = useState(
+    linkReadFullArticleTexts[theme]
+  );
+
+  useEffect(() => {
+    setLinkReadFullArticleText(
+      resolvedTheme
+        ? linkReadFullArticleTexts[theme]
+        : linkReadFullArticleTexts.us
+    );
+  }, [resolvedTheme, theme]);
 
   return (
     <Wrapper sx={{ flexDirection: flexDirection }}>
@@ -58,7 +85,7 @@ export default function NewCard({
         <LinkBox>
           <LinkReadFullArticle href={linkFullArticle} target="_blank">
             <Text sx={{ fontSize: isTablet ? "16px" : "14px" }}>
-              Read full article
+              {linkReadFullArticleText}
             </Text>
           </LinkReadFullArticle>
           <IconLink />

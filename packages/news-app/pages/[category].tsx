@@ -1,6 +1,6 @@
 import { device } from "@assets/styles/breakpoints";
 import Layout from "@components/Layout";
-import NewCard from "@components/NewCard";
+import NewsCard from "@components/NewsCard";
 import Text from "@components/Text";
 import { Box, Container, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
@@ -45,7 +45,7 @@ export default function Category() {
           <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {Array.from(Array(10)).map((_, index) => {
               return (
-                <NewCard
+                <NewsCard
                   key={index}
                   flexBoxTitle={isTablet ? 4 : 2}
                   imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"

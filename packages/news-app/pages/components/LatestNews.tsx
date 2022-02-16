@@ -1,5 +1,5 @@
 import { device } from "@assets/styles/breakpoints";
-import NewCard from "@components/NewCard";
+import NewsCard from "@components/NewsCard";
 import { Box, useMediaQuery } from "@mui/material";
 import Title from "./Title";
 
@@ -29,7 +29,7 @@ export default function LatestNews() {
         <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {Array.from(Array(3)).map((_, index) => {
             return (
-              <NewCard
+              <NewsCard
                 key={index}
                 flexBoxTitle={isTablet ? 1 : 2}
                 imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
@@ -46,7 +46,7 @@ export default function LatestNews() {
         <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {Array.from(Array(3)).map((_, index) => {
             return (
-              <NewCard
+              <NewsCard
                 key={index}
                 flexBoxTitle={isTablet ? 1 : 2}
                 imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"

@@ -25,10 +25,10 @@ export default function InputSearch() {
 
   const { resolvedTheme } = useTheme();
   const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
-  const [palceholder, setPalceholder] = useState(placeholders[theme]);
+  const [placeholder, setPlaceholder] = useState(placeholders[theme]);
 
   useEffect(() => {
-    setPalceholder(resolvedTheme ? placeholders[theme] : placeholders.us);
+    setPlaceholder(resolvedTheme ? placeholders[theme] : placeholders.us);
   }, [resolvedTheme, theme]);
 
   return (
@@ -44,7 +44,7 @@ export default function InputSearch() {
         sx={{
           width: "100%",
         }}
-        placeholder={palceholder}
+        placeholder={placeholder}
         endAdornment={
           <InputAdornment position="end">
             <SearchIconStyled />

@@ -1,5 +1,5 @@
 import { device } from "@assets/styles/breakpoints";
-import NewCard from "@components/NewCard";
+import NewsCard from "@components/NewsCard";
 import { Box, useMediaQuery } from "@mui/material";
 import Title from "./Title";
 
@@ -27,7 +27,7 @@ export default function Headlines() {
         }}
       >
         <Box sx={{ flex: isTablet ? 2 : 1 }}>
-          <NewCard
+          <NewsCard
             flexDirection="column"
             imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
             imageHeight={isTablet ? 346 : 157}
@@ -45,7 +45,7 @@ export default function Headlines() {
             gap: "16px",
           }}
         >
-          <NewCard
+          <NewsCard
             flexDirection="column"
             imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
             imageHeight={isTablet ? 120 : 102}
@@ -54,7 +54,7 @@ export default function Headlines() {
             titleStyle={isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"}
             linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
           />
-          <NewCard
+          <NewsCard
             flexDirection="column"
             imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
             imageHeight={isTablet ? 120 : 102}
