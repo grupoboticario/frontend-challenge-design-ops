@@ -1,7 +1,7 @@
 import { createStitches } from "@stitches/react";
-import brazilTheme from "@design-ops/design-system/dist/brazil";
-import protugalTheme from "@design-ops/design-system/dist/portugal";
-import usaTheme from "@design-ops/design-system/dist/usa";
+const brazilTheme = require("@design-ops/design-system/dist/brazil");
+const protugalTheme = require("@design-ops/design-system/dist/portugal");
+const usaTheme = require("@design-ops/design-system/dist/usa");
 
 export const {
   styled,
