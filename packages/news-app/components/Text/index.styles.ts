@@ -1,5 +1,5 @@
 const defaultProps = {
-  fontFamily: "SourceSansPro",
+  fontFamily: "Source Sans Pro",
   fontStyle: "normal",
   letterSpacing: "0.08em",
 };
