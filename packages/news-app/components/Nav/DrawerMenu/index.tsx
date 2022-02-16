@@ -1,7 +1,7 @@
 import { Box, IconButton, List, ListItem, ListItemText } from "@mui/material";
 import React, { useContext, useState } from "react";
 import "react-modern-drawer/dist/index.css";
-import Logo from "../../Header/Logo";
+import Logo from "@components/Header/Logo";
 import { menuItems } from "../data";
 import {
   DrawerStyled,
@@ -9,7 +9,7 @@ import {
   ListItemTextStyled,
 } from "./index.styles";
 import { BsX } from "react-icons/bs";
-import { DrawerContext } from "../../../context/DrawerContext";
+import { DrawerContext } from "@context/DrawerContext";
 import { useTheme } from "next-themes";
 import { Theme } from "../types";
 

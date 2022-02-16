@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
-import { usTheme, brTheme, ptTheme } from "../stitches.config";
+import { usTheme, brTheme, ptTheme } from "@stitches.config";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`

@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
-import { styled } from "../../stitches.config";
-import Text from "../Text";
+import { styled } from "@stitches.config";
+import Text from "@components/Text";
 
 export const NavStyled = styled("nav", {
   height: "60px",

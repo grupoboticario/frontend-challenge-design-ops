@@ -4,7 +4,7 @@ import {
   OutlinedInput,
   useMediaQuery,
 } from "@mui/material";
-import { device } from "../../../assets/styles/breakpoints";
+import { device } from "@assets/styles/breakpoints";
 import { SearchIconStyled } from "./index.styles";
 
 export default function InputSearch() {

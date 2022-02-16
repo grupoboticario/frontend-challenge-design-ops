@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { styled } from "../../../stitches.config";
-import Text from "../../Text";
+import { styled } from "@stitches.config";
+import Text from "@components/Text";
 
 export const LogoStyled = styled(Box, {
   display: "flex",

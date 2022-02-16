@@ -1,5 +1,5 @@
 import { Box, ListItem, ListItemText } from "@mui/material";
-import { styled } from "../../../stitches.config";
+import { styled } from "@stitches.config";
 import Drawer from "react-modern-drawer";
 
 export const DrawerStyled = styled(Drawer, {

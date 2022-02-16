@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
-import { device } from "../../assets/styles/breakpoints";
-import { styled } from "../../stitches.config";
+import { device } from "@assets/styles/breakpoints";
+import { styled } from "@stitches.config";
 
 export const ContainerStyled = styled(Container, {
   background: "$theme",
