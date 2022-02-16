@@ -6,9 +6,30 @@ import {
 } from "@mui/material";
 import { device } from "@assets/styles/breakpoints";
 import { SearchIconStyled } from "./index.styles";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Theme } from "types/theme";
+
+type Placeholders = {
+  [x: string]: string;
+};
+
+const placeholders: Placeholders = {
+  pt: "Buscar notícias",
+  br: "Buscar notícias",
+  us: "Search news",
+};
 
 export default function InputSearch() {
   const isTablet = useMediaQuery(device.tablet);
+
+  const { resolvedTheme } = useTheme();
+  const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
+  const [palceholder, setPalceholder] = useState(placeholders[theme]);
+
+  useEffect(() => {
+    setPalceholder(resolvedTheme ? placeholders[theme] : placeholders.us);
+  }, [resolvedTheme, theme]);
 
   return (
     <FormControl
@@ -23,7 +44,7 @@ export default function InputSearch() {
         sx={{
           width: "100%",
         }}
-        placeholder="Search"
+        placeholder={palceholder}
         endAdornment={
           <InputAdornment position="end">
             <SearchIconStyled />

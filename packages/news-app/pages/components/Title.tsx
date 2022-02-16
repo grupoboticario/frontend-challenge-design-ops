@@ -18,6 +18,7 @@ export default function Title({ titles }: { titles: Titles }) {
   useEffect(() => {
     setTitle(resolvedTheme ? titles[theme] : titles.us);
   }, [resolvedTheme, theme, titles]);
+
   return (
     <Text
       textStyle={isTablet ? "TitleDesktop" : "TitleMobile"}
