@@ -21,6 +21,13 @@ export const MenuItem = styled(Box, {
   "&:hover": {
     backgroundColor: "$menu-active",
   },
+  variants: {
+    active: {
+      true: {
+        backgroundColor: "$menu-active",
+      },
+    },
+  },
 });
 
 export const LabelMenuItem = styled(Text, {

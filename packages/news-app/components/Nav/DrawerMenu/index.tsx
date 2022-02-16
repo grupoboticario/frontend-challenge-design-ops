@@ -12,6 +12,7 @@ import { BsX } from "react-icons/bs";
 import { DrawerContext } from "@context/DrawerContext";
 import { useTheme } from "next-themes";
 import { Theme } from "types/theme";
+import Link from "next/link";
 
 export default function DrawerMenu() {
   const { isOpen, setIsOpen } = useContext(DrawerContext);
@@ -43,10 +44,12 @@ export default function DrawerMenu() {
         </IconButton>
       </Box>
       <List>
-        {menuItems.map(({ id, label }) => (
-          <ListItemStyled key={id}>
-            <ListItemTextStyled primary={label[theme]} />
-          </ListItemStyled>
+        {menuItems.map(({ id, label, route }) => (
+          <Link key={id} href={route} passHref>
+            <ListItemStyled onClick={() => setIsOpen(false)}>
+              <ListItemTextStyled primary={label[theme]} />
+            </ListItemStyled>
+          </Link>
         ))}
       </List>
     </DrawerStyled>

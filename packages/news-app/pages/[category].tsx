@@ -1,12 +1,12 @@
 import { device } from "@assets/styles/breakpoints";
 import Layout from "@components/Layout";
+import NewCard from "@components/NewCard";
 import Text from "@components/Text";
 import { Box, Container, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
-import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 import { Theme } from "types/theme";
-import NewCard from "@components/NewCard";
 
 type Label = {
   [x: string]: string;

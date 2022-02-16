@@ -7,20 +7,27 @@ import {
 } from "./index.styles";
 import { useTheme } from "next-themes";
 import { Theme } from "types/theme";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Nav() {
   const { resolvedTheme } = useTheme();
-
   const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
+
+  const router = useRouter();
+  const { category } = router.query;
+  const page = category ? category : "";
 
   return (
     <NavStyled>
       <ContainerStyled>
-        {menuItems.map(({ id, label }) => {
+        {menuItems.map(({ id, label, route }) => {
           return (
-            <MenuItem key={id}>
-              <LabelMenuItem>{label[theme]}</LabelMenuItem>
-            </MenuItem>
+            <Link key={id} href={route} passHref>
+              <MenuItem active={`/${page}` === route}>
+                <LabelMenuItem>{label[theme]}</LabelMenuItem>
+              </MenuItem>
+            </Link>
           );
         })}
       </ContainerStyled>
