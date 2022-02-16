@@ -5,7 +5,3 @@ export type MenuItemType = {
     [x: string]: string;
   };
 };
-
-type Themes = "us" | "br" | "pt";
-
-export type Theme = Themes | string;

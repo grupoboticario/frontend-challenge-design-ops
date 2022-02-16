@@ -11,7 +11,7 @@ import {
 import { BsX } from "react-icons/bs";
 import { DrawerContext } from "@context/DrawerContext";
 import { useTheme } from "next-themes";
-import { Theme } from "../types";
+import { Theme } from "types/theme";
 
 export default function DrawerMenu() {
   const { isOpen, setIsOpen } = useContext(DrawerContext);

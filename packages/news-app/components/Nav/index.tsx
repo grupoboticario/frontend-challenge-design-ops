@@ -6,7 +6,7 @@ import {
   NavStyled,
 } from "./index.styles";
 import { useTheme } from "next-themes";
-import { Theme } from "./types";
+import { Theme } from "types/theme";
 
 export default function Nav() {
   const { resolvedTheme } = useTheme();

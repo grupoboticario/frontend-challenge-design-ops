@@ -8,6 +8,7 @@ import React from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const isTablet = useMediaQuery(device.tablet);
+
   return (
     <DrawerStorage>
       <Header />

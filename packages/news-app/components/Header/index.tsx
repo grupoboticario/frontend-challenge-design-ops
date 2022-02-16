@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@mui/material";
+import { Container, useMediaQuery } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { useContext } from "react";
 import { FaBars } from "react-icons/fa";
@@ -33,7 +33,11 @@ const Header = () => {
           <Flags />
         </HeaderStyled>
       </ContainerStyled>
-      {!isTablet && <InputSearch />}
+      {!isTablet && (
+        <Container>
+          <InputSearch />
+        </Container>
+      )}
     </>
   );
 };

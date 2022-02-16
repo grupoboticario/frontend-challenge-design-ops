@@ -16,7 +16,7 @@ export default function InputSearch() {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        padding: isTablet ? "0 180px" : "16px 28px",
+        padding: isTablet ? "0 180px" : "16px 0",
       }}
     >
       <OutlinedInput
