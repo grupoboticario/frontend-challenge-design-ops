@@ -5,7 +5,7 @@ import { textStyle } from "types/text";
 import {
   Category,
   IconLink,
-  LastUpdateDateText,
+  PublishedDateText,
   LinkBox,
   LinkReadFullArticle,
   Wrapper,
@@ -14,50 +14,54 @@ import {
 type NewCardProps = {
   flexDirection?: "row" | "column";
   imagePath: string;
+  imageHeight?: number;
   category: string;
   title: string;
   titleStyle: textStyle;
   linkFullArticle: string;
-  lastUpdateDate: string;
+  publishedDate?: string;
+  showPublishedDate?: boolean;
 };
 
 export default function NewCard({
   flexDirection = "row",
   imagePath,
+  imageHeight = 104,
   category,
   title,
   titleStyle,
   linkFullArticle,
-  lastUpdateDate,
+  publishedDate,
+  showPublishedDate = false,
 }: NewCardProps) {
   const isTablet = useMediaQuery(device.tablet);
 
   return (
-    <Wrapper>
+    <Wrapper sx={{ flexDirection: flexDirection }}>
       <Box sx={{ flex: 1 }}>
         <Box
           component="img"
           alt={title}
           src={imagePath}
-          sx={{ borderRadius: "8px", width: "100%", height: 104 }}
+          sx={{ borderRadius: "8px", width: "100%", height: imageHeight }}
         />
       </Box>
       <Box sx={{ flex: isTablet ? 4 : 1 }}>
         <Category sx={{ fontSize: isTablet ? "16px" : "14px" }}>
           {category}
         </Category>
-        <Text
-          textStyle={isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"}
-        >
-          {title}
-        </Text>
+        <Text textStyle={titleStyle}>{title}</Text>
         <LinkBox>
           <LinkReadFullArticle href={linkFullArticle} target="_blank">
-            <Text>Read full article</Text>
+            <Text sx={{ fontSize: isTablet ? "16px" : "14px" }}>
+              Read full article
+            </Text>
           </LinkReadFullArticle>
           <IconLink />
         </LinkBox>
-        {isTablet && <LastUpdateDateText>{lastUpdateDate}</LastUpdateDateText>}
+        {showPublishedDate && (
+          <PublishedDateText>{publishedDate}</PublishedDateText>
+        )}
       </Box>
     </Wrapper>
   );

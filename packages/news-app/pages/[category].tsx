@@ -48,13 +48,14 @@ export default function Category() {
                 <NewCard
                   key={index}
                   imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
-                  category="Category"
+                  category={title}
                   title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
                   titleStyle={
                     isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"
                   }
                   linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
-                  lastUpdateDate="14 hours ago"
+                  publishedDate="14 hours ago"
+                  showPublishedDate
                 />
               );
             })}

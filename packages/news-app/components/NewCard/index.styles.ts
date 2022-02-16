@@ -29,6 +29,6 @@ export const LinkReadFullArticle = styled(Link, {
   borderBottom: "1px solid $link",
 });
 
-export const LastUpdateDateText = styled(Text, {
+export const PublishedDateText = styled(Text, {
   color: "$text-auxiliar",
 });
