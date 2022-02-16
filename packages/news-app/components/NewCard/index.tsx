@@ -13,6 +13,8 @@ import {
 
 type NewCardProps = {
   flexDirection?: "row" | "column";
+  flexBoxImage?: number;
+  flexBoxTitle?: number;
   imagePath: string;
   imageHeight?: number;
   category: string;
@@ -25,6 +27,8 @@ type NewCardProps = {
 
 export default function NewCard({
   flexDirection = "row",
+  flexBoxImage = 1,
+  flexBoxTitle = 1,
   imagePath,
   imageHeight = 104,
   category,
@@ -38,7 +42,7 @@ export default function NewCard({
 
   return (
     <Wrapper sx={{ flexDirection: flexDirection }}>
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: flexBoxImage }}>
         <Box
           component="img"
           alt={title}
@@ -46,7 +50,7 @@ export default function NewCard({
           sx={{ borderRadius: "8px", width: "100%", height: imageHeight }}
         />
       </Box>
-      <Box sx={{ flex: isTablet ? 4 : 1 }}>
+      <Box sx={{ flex: flexBoxTitle }}>
         <Category sx={{ fontSize: isTablet ? "16px" : "14px" }}>
           {category}
         </Category>

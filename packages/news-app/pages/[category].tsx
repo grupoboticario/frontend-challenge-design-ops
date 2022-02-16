@@ -47,6 +47,7 @@ export default function Category() {
               return (
                 <NewCard
                   key={index}
+                  flexBoxTitle={isTablet ? 4 : 2}
                   imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
                   category={title}
                   title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"

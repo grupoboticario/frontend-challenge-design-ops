@@ -1,38 +1,24 @@
 import { device } from "@assets/styles/breakpoints";
 import NewCard from "@components/NewCard";
-import Text from "@components/Text";
 import { Box, useMediaQuery } from "@mui/material";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { Theme } from "types/theme";
+import Title from "./Title";
 
 type Titles = {
   [x: string]: string;
 };
 
 const titles: Titles = {
-  pt: "Manchetes",
-  br: "Manchetes",
+  pt: "Principais notícias",
+  br: "Principais notícias",
   us: "Headlines",
 };
 
 export default function Headlines() {
   const isTablet = useMediaQuery(device.tablet);
-  const { resolvedTheme } = useTheme();
-  const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
-  const [title, setTitle] = useState(titles[theme]);
 
-  useEffect(() => {
-    setTitle(resolvedTheme ? titles[theme] : titles.us);
-  }, [resolvedTheme, theme]);
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Text
-        textStyle={isTablet ? "TitleDesktop" : "TitleMobile"}
-        sx={{ marginBottom: isTablet ? "20px" : "16px" }}
-      >
-        {title}
-      </Text>
+      <Title titles={titles} />
       <Box
         sx={{
           display: "flex",
