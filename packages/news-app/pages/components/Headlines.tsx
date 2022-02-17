@@ -1,7 +1,10 @@
 import { device } from "@assets/styles/breakpoints";
 import NewsCard from "@components/NewsCard";
 import { Box, useMediaQuery } from "@mui/material";
+import { useFetchHeadlines } from "hooks/use-fetch-headlines";
+import { useTheme } from "next-themes";
 import { Languages } from "types/languages";
+import { Theme } from "types/theme";
 import Title from "./Title";
 
 const titles: Languages = {
@@ -12,6 +15,15 @@ const titles: Languages = {
 
 export default function Headlines() {
   const isTablet = useMediaQuery(device.tablet);
+
+  const { resolvedTheme } = useTheme();
+  const country: Theme = resolvedTheme?.replace("Theme", "") || "us";
+
+  const { headlines } = useFetchHeadlines(country);
+
+  const newsAboutScience = headlines?.science;
+  const newsAboutTechnology = headlines?.technology;
+  const newsAboutBusiness = headlines?.business;
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -26,12 +38,12 @@ export default function Headlines() {
         <Box sx={{ flex: isTablet ? 2 : 1 }}>
           <NewsCard
             flexDirection="column"
-            imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
+            imagePath={newsAboutScience?.urlToImage || ""}
             imageHeight={isTablet ? 346 : 157}
             category="Science"
-            title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
+            title={newsAboutScience?.title || ""}
             titleStyle={isTablet ? "HeadlineDesktop" : "HeadlineMobile"}
-            linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
+            linkFullArticle={newsAboutScience?.url || ""}
           />
         </Box>
         <Box
@@ -44,21 +56,21 @@ export default function Headlines() {
         >
           <NewsCard
             flexDirection="column"
-            imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
+            imagePath={newsAboutTechnology?.urlToImage || ""}
             imageHeight={isTablet ? 120 : 102}
             category="Technology"
-            title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
+            title={newsAboutTechnology?.title || ""}
             titleStyle={isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"}
-            linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
+            linkFullArticle={newsAboutTechnology?.url || ""}
           />
           <NewsCard
             flexDirection="column"
-            imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
+            imagePath={newsAboutBusiness?.urlToImage || ""}
             imageHeight={isTablet ? 120 : 102}
             category="Business"
-            title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
+            title={newsAboutBusiness?.title || ""}
             titleStyle={isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"}
-            linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
+            linkFullArticle={newsAboutBusiness?.url || ""}
           />
         </Box>
       </Box>
