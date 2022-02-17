@@ -1,7 +1,10 @@
 import { device } from "@assets/styles/breakpoints";
 import NewsCard from "@components/NewsCard";
 import { Box, useMediaQuery } from "@mui/material";
+import { useFetchLatestNews } from "hooks/use-fetch-latest-news";
+import { useTheme } from "next-themes";
 import { Languages } from "types/languages";
+import { Theme } from "types/theme";
 import Title from "./Title";
 
 const titles: Languages = {
@@ -12,6 +15,13 @@ const titles: Languages = {
 
 export default function LatestNews() {
   const isTablet = useMediaQuery(device.tablet);
+
+  const { resolvedTheme } = useTheme();
+  const country: Theme = resolvedTheme?.replace("Theme", "") || "us";
+
+  const { latestNews } = useFetchLatestNews(country);
+
+  const news = Object.entries(latestNews || {});
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -24,35 +34,35 @@ export default function LatestNews() {
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          {Array.from(Array(3)).map((_, index) => {
+          {news.slice(0, news.length / 2).map(([category, news], index) => {
             return (
               <NewsCard
                 key={index}
                 flexBoxTitle={isTablet ? 1 : 2}
-                imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
-                category="Science"
-                title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
+                imagePath={news?.urlToImage || ""}
+                category={category}
+                title={news?.title || ""}
                 titleStyle={
                   isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"
                 }
-                linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
+                linkFullArticle={news?.url || ""}
               />
             );
           })}
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          {Array.from(Array(3)).map((_, index) => {
+          {news.slice(news.length / 2).map(([category, news], index) => {
             return (
               <NewsCard
                 key={index}
                 flexBoxTitle={isTablet ? 1 : 2}
-                imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
-                category="Business"
-                title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
+                imagePath={news?.urlToImage || ""}
+                category={category}
+                title={news?.title || ""}
                 titleStyle={
                   isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"
                 }
-                linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
+                linkFullArticle={news?.url || ""}
               />
             );
           })}

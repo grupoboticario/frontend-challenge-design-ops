@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const token = "7cebc0bd449148cc9ab22d15297b9ee2";
+const token = "b326d03c9928402c8b9b395a3a029c62";
 
 const api = axios.create({
   baseURL: "https://newsapi.org/v2/",
