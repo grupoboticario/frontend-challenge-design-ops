@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import { Theme } from "types/theme";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
   const { resolvedTheme } = useTheme();
@@ -24,7 +25,9 @@ export default function Nav() {
         {menuItems.map(({ id, label, route }) => {
           return (
             <Link key={id} href={route} passHref>
-              <MenuItem active={`/${page}` === route}>
+              <MenuItem
+                active={router.route !== "/search" && `/${page}` === route}
+              >
                 <LabelMenuItem>{label[theme]}</LabelMenuItem>
               </MenuItem>
             </Link>
