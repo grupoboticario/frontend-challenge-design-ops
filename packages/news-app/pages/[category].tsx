@@ -2,6 +2,7 @@ import { device } from "@assets/styles/breakpoints";
 import ButtonLoadMore from "@components/ButtonLoadMore";
 import Layout from "@components/Layout";
 import NewsCard from "@components/NewsCard";
+import NoResults from "@components/NoResults";
 import Text from "@components/Text";
 import { Box, Container, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
@@ -25,6 +26,13 @@ export default function Category() {
   const [categoryPage] = categories.filter(
     (item) => item.route.replace("/", "") === category
   );
+
+  if (!categoryPage)
+    return (
+      <NoResults
+        term={Array.isArray(category) ? category[0] : category || ""}
+      />
+    );
 
   const label: Label = categoryPage ? categoryPage.label : categories[0].label;
 

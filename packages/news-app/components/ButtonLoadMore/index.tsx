@@ -10,8 +10,8 @@ type LinkLoadMoreArticlesTexts = {
 };
 
 const linkLoadMoreArticlesTexts: LinkLoadMoreArticlesTexts = {
-  pt: "Carregar mais artigos",
-  br: "Carregar mais artigos",
+  pt: "Carregar mais notícias",
+  br: "Carregar mais notícias",
   us: "Load more articles",
 };
 
