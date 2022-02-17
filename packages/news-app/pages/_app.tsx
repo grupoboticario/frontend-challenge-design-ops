@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import { usTheme, brTheme, ptTheme } from "@stitches.config";
 import { createGlobalStyle } from "styled-components";
+import { SerachStorage } from "@context/SearchContext";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -29,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           ptTheme: ptTheme.className,
         }}
       >
-        <Component {...pageProps} />
+        <SerachStorage>
+          <Component {...pageProps} />
+        </SerachStorage>
       </ThemeProvider>
     </>
   );

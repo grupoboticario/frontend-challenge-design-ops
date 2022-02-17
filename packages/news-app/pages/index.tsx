@@ -1,13 +1,21 @@
 import { device } from "@assets/styles/breakpoints";
 import ButtonLoadMore from "@components/ButtonLoadMore";
 import Layout from "@components/Layout";
+import { SerachContext } from "@context/SearchContext";
 import { Container, Divider, useMediaQuery } from "@mui/material";
 import type { NextPage } from "next";
+import { useContext, useEffect } from "react";
 import Headlines from "./components/Headlines";
 import LatestNews from "./components/LatestNews";
 
 const Home: NextPage = () => {
   const isTablet = useMediaQuery(device.tablet);
+
+  const { setKeyWord } = useContext(SerachContext);
+
+  useEffect(() => {
+    setKeyWord("");
+  }, [setKeyWord]);
 
   return (
     <Layout>

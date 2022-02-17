@@ -19,7 +19,7 @@ export default async function handler(
           articles: [newAbout],
         },
       } = await api.get(
-        `/top-headlines?country=${country}&category=${category}&pageSize=1`
+        `/top-headlines?country=${country}&category=${category}&sortBy=publishedAt&pageSize=1`
       );
 
       return { ...(await acc), [category]: newAbout };

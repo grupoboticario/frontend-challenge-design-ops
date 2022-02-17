@@ -8,7 +8,11 @@ import { Languages } from "types/languages";
 import NewsList from "./components/NewsList";
 import { useTheme } from "next-themes";
 import { Theme } from "types/theme";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SerachContext } from "@context/SearchContext";
+import { useFetchNewsByKeyWord } from "hooks/use-fetch-news-by-keyword";
+import LoadingNews from "@components/LoadingNews";
+import NoResults from "@components/NoResults";
 
 const resultsForTexts: Languages = {
   pt: "Resultados para:",
@@ -19,11 +23,24 @@ const resultsForTexts: Languages = {
 export default function Search() {
   const isTablet = useMediaQuery(device.tablet);
   const router = useRouter();
-  const { category } = router.query;
+  const { q: keyWord } = router.query;
 
   const { resolvedTheme } = useTheme();
   const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
   const [resultsForText, seResultsForText] = useState(resultsForTexts[theme]);
+
+  const languages: any = {
+    pt: "pt",
+    br: "pt",
+    us: "en",
+  };
+
+  const language = languages[theme];
+
+  const { newsByKeyWord, loading } = useFetchNewsByKeyWord(
+    Array.isArray(keyWord) ? keyWord[0] : keyWord || "",
+    language
+  );
 
   useEffect(() => {
     seResultsForText(
@@ -34,18 +51,34 @@ export default function Search() {
   return (
     <Layout>
       <Container sx={{ marginTop: isTablet ? "44px" : "20px" }}>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Text
-            textStyle={isTablet ? "SubtitleDesktop" : "SubtitleMobile"}
-            sx={{ marginBottom: isTablet ? "20px" : "16px" }}
-          >
-            {`${resultsForText}`}
-          </Text>
-          <NewsList
-            category={Array.isArray(category) ? category[0] : category || ""}
-          />
-        </Box>
-        <ButtonLoadMore />
+        {loading ? (
+          <LoadingNews />
+        ) : (
+          <>
+            {newsByKeyWord?.articles.length ? (
+              <>
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <Text
+                    textStyle={isTablet ? "SubtitleDesktop" : "SubtitleMobile"}
+                    sx={{ marginBottom: isTablet ? "20px" : "16px" }}
+                  >
+                    {`${resultsForText} ${keyWord}`}
+                  </Text>
+                  <NewsList
+                    articles={newsByKeyWord?.articles}
+                    category=""
+                    showCategory={false}
+                  />
+                </Box>
+                <ButtonLoadMore />
+              </>
+            ) : (
+              <NoResults
+                term={Array.isArray(keyWord) ? keyWord[0] : keyWord || ""}
+              />
+            )}
+          </>
+        )}
       </Container>
     </Layout>
   );

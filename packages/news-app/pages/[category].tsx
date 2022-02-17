@@ -4,17 +4,25 @@ import Layout from "@components/Layout";
 import LoadingNews from "@components/LoadingNews";
 import NoResults from "@components/NoResults";
 import Text from "@components/Text";
+import { SerachContext } from "@context/SearchContext";
 import { Box, Container, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
 import { useFetchNewsByCategory } from "hooks/use-fetch-news-by-category";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
 import { Languages } from "types/languages";
 import { Theme } from "types/theme";
 import NewsList from "./components/NewsList";
 import Search from "./search";
 
 export default function Category() {
+  const { setKeyWord } = useContext(SerachContext);
+
+  useEffect(() => {
+    setKeyWord("");
+  }, [setKeyWord]);
+
   const isTablet = useMediaQuery(device.tablet);
 
   const router = useRouter();
@@ -36,13 +44,6 @@ export default function Category() {
     return <Search />;
   }
 
-  if (!categoryPage)
-    return (
-      <NoResults
-        term={Array.isArray(category) ? category[0] : category || ""}
-      />
-    );
-
   const label: Languages = categoryPage
     ? categoryPage.label
     : categories[0].label;
@@ -56,25 +57,33 @@ export default function Category() {
           <LoadingNews />
         ) : (
           <>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Text
-                textStyle={isTablet ? "TitleDesktop" : "TitleMobile"}
-                sx={{
-                  textTransform: "capitalize",
-                  marginBottom: isTablet ? "20px" : "16px",
-                }}
-              >
-                {title}
-              </Text>
-              <NewsList
-                articles={newsByCategory?.articles}
-                category={
-                  Array.isArray(category) ? category[0] : category || ""
-                }
-                showCategory={false}
+            {categoryPage ? (
+              <>
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <Text
+                    textStyle={isTablet ? "TitleDesktop" : "TitleMobile"}
+                    sx={{
+                      textTransform: "capitalize",
+                      marginBottom: isTablet ? "20px" : "16px",
+                    }}
+                  >
+                    {title}
+                  </Text>
+                  <NewsList
+                    articles={newsByCategory?.articles}
+                    category={
+                      Array.isArray(category) ? category[0] : category || ""
+                    }
+                    showCategory={false}
+                  />
+                </Box>
+                <ButtonLoadMore />
+              </>
+            ) : (
+              <NoResults
+                term={Array.isArray(category) ? category[0] : category || ""}
               />
-            </Box>
-            <ButtonLoadMore />
+            )}
           </>
         )}
       </Container>

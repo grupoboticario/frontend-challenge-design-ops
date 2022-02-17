@@ -33,16 +33,14 @@ export default function NoResults({ term }: { term: string }) {
   }, [resolvedTheme, theme]);
 
   return (
-    <Layout>
-      <Container>
-        <Text
-          textStyle={isTablet ? "SubtitleDesktop" : "SubtitleMobile"}
-          sx={{ margin: isTablet ? "60px 0 36px 0" : "36px 0 16px 0" }}
-        >
-          {`${noResultsText} ${term}`}
-        </Text>
-        <Text>{trySearchText}</Text>
-      </Container>
-    </Layout>
+    <Container>
+      <Text
+        textStyle={isTablet ? "SubtitleDesktop" : "SubtitleMobile"}
+        sx={{ margin: isTablet ? "60px 0 36px 0" : "36px 0 16px 0" }}
+      >
+        {`${noResultsText} ${term}`}
+      </Text>
+      <Text>{trySearchText}</Text>
+    </Container>
   );
 }

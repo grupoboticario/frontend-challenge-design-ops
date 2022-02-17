@@ -1,15 +1,17 @@
+import { device } from "@assets/styles/breakpoints";
+import { SerachContext } from "@context/SearchContext";
 import {
   FormControl,
   InputAdornment,
   OutlinedInput,
   useMediaQuery,
 } from "@mui/material";
-import { device } from "@assets/styles/breakpoints";
-import { SearchIconStyled } from "./index.styles";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { Theme } from "types/theme";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Languages } from "types/languages";
+import { Theme } from "types/theme";
+import { SearchIconStyled } from "./index.styles";
 
 const placeholders: Languages = {
   pt: "Buscar notícias",
@@ -18,6 +20,11 @@ const placeholders: Languages = {
 };
 
 export default function InputSearch() {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const { keyWord, setKeyWord } = useContext(SerachContext);
+
+  const router = useRouter();
   const isTablet = useMediaQuery(device.tablet);
 
   const { resolvedTheme } = useTheme();
@@ -27,6 +34,16 @@ export default function InputSearch() {
   useEffect(() => {
     setPlaceholder(resolvedTheme ? placeholders[theme] : placeholders.us);
   }, [resolvedTheme, theme]);
+
+  const handleChange = (event: any) => {
+    setKeyWord(event.target.value);
+  };
+
+  const redirectToSearchPage = () => {
+    if (keyWord) {
+      router.push(`/search?q=${keyWord}`);
+    }
+  };
 
   return (
     <FormControl
@@ -38,6 +55,8 @@ export default function InputSearch() {
       }}
     >
       <OutlinedInput
+        value={keyWord}
+        ref={inputRef}
         sx={{
           width: "100%",
         }}
@@ -47,6 +66,9 @@ export default function InputSearch() {
             <SearchIconStyled />
           </InputAdornment>
         }
+        onChange={handleChange}
+        onKeyPress={(e) => e.key === "Enter" && redirectToSearchPage()}
+        onBlur={(e) => redirectToSearchPage()}
       />
     </FormControl>
   );
