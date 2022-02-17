@@ -22,7 +22,7 @@ export const useFetchNewsByCategory = (
     let mounted = true;
 
     setLoading(true);
-    console.log(totalPage + 10);
+
     axios
       .get(
         `/api/news/news-by-category?country=${country}&category=${category}&pageSize=${

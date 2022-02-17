@@ -107,7 +107,9 @@ export default function NewsCard({
           <IconLink />
         </LinkBox>
         {showPublishedDate && (
-          <PublishedDateText>{publishedDate}</PublishedDateText>
+          <PublishedDateText>
+            {new Intl.DateTimeFormat("pt-BR").format(new Date(publishedDate))}
+          </PublishedDateText>
         )}
       </Box>
     </Wrapper>

@@ -20,7 +20,7 @@ export const useFetchNewsByKeyWord = (
     let mounted = true;
 
     setLoading(true);
-    console.log(totalPage + 10);
+
     axios
       .get(
         `/api/news/search?keyWord=${keyword}&language=${language}&pageSize=${

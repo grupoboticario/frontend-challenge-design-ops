@@ -25,7 +25,9 @@ export default function LatestNews() {
   const news = Object.entries(latestNews || {});
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box
+      sx={{ display: "flex", flexDirection: "column", marginBottom: "60px" }}
+    >
       <Title titles={titles} />
       {loading ? (
         <LoadingNews />

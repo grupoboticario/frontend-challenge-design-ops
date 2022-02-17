@@ -1,5 +1,4 @@
 import { device } from "@assets/styles/breakpoints";
-import ButtonLoadMore from "@components/ButtonLoadMore";
 import Layout from "@components/Layout";
 import { SerachContext } from "@context/SearchContext";
 import { Container, Divider, useMediaQuery } from "@mui/material";
@@ -23,7 +22,6 @@ const Home: NextPage = () => {
         <Headlines />
         <Divider sx={{ margin: isTablet ? "60px 0" : "36px 0" }} />
         <LatestNews />
-        <ButtonLoadMore />
       </Container>
     </Layout>
   );
