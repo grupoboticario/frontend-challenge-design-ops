@@ -4,6 +4,7 @@ import { Box, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Languages } from "types/languages";
 import { textStyle } from "types/text";
 import { Theme } from "types/theme";
 import {
@@ -15,15 +16,7 @@ import {
   Wrapper,
 } from "./index.styles";
 
-type LinkReadFullArticleTexts = {
-  [x: string]: string;
-};
-
-type Label = {
-  [x: string]: string;
-};
-
-const linkReadFullArticleTexts: LinkReadFullArticleTexts = {
+const linkReadFullArticleTexts: Languages = {
   pt: "Ler o artigo completo",
   br: "Ler o artigo completo",
   us: "Read full article",
@@ -67,7 +60,9 @@ export default function NewsCard({
     (item) => item.route.replace("/", "") === category.toLowerCase()
   );
 
-  const label: Label = categoryPage ? categoryPage.label : categories[0].label;
+  const label: Languages = categoryPage
+    ? categoryPage.label
+    : categories[0].label;
 
   const categoryTranslate = resolvedTheme ? label[theme] : label.us;
 

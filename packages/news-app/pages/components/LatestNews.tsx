@@ -1,13 +1,10 @@
 import { device } from "@assets/styles/breakpoints";
 import NewsCard from "@components/NewsCard";
 import { Box, useMediaQuery } from "@mui/material";
+import { Languages } from "types/languages";
 import Title from "./Title";
 
-type Titles = {
-  [x: string]: string;
-};
-
-const titles: Titles = {
+const titles: Languages = {
   pt: "Últimas notícias",
   br: "Últimas notícias",
   us: "Latest news",

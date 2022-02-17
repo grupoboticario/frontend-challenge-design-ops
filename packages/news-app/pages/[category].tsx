@@ -8,11 +8,8 @@ import { Box, Container, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import { Languages } from "types/languages";
 import { Theme } from "types/theme";
-
-type Label = {
-  [x: string]: string;
-};
 
 export default function Category() {
   const isTablet = useMediaQuery(device.tablet);
@@ -34,7 +31,9 @@ export default function Category() {
       />
     );
 
-  const label: Label = categoryPage ? categoryPage.label : categories[0].label;
+  const label: Languages = categoryPage
+    ? categoryPage.label
+    : categories[0].label;
 
   const title = resolvedTheme ? label[theme] : label.us;
 

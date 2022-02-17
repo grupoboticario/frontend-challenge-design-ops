@@ -9,12 +9,9 @@ import { SearchIconStyled } from "./index.styles";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Theme } from "types/theme";
+import { Languages } from "types/languages";
 
-type Placeholders = {
-  [x: string]: string;
-};
-
-const placeholders: Placeholders = {
+const placeholders: Languages = {
   pt: "Buscar notícias",
   br: "Buscar notícias",
   us: "Search news",

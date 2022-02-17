@@ -1,7 +1,7 @@
+import { Languages } from "types/languages";
+
 export type MenuItemType = {
   id: number;
   route: string;
-  label: {
-    [x: string]: string;
-  };
+  label: Languages;
 };

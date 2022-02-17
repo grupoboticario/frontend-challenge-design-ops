@@ -4,11 +4,8 @@ import Text from "@components/Text";
 import { Container, useMediaQuery } from "@mui/material";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Languages } from "types/languages";
 import { Theme } from "types/theme";
-
-type Languages = {
-  [x: string]: string;
-};
 
 const noResultsTexts: Languages = {
   pt: "Sem resultados para:",

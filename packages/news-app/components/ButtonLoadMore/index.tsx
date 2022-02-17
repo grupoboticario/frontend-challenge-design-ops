@@ -2,14 +2,11 @@ import { device } from "@assets/styles/breakpoints";
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Languages } from "types/languages";
 import { Theme } from "types/theme";
 import { ButtonLoadMoreStyled } from "./index.styles";
 
-type LinkLoadMoreArticlesTexts = {
-  [x: string]: string;
-};
-
-const linkLoadMoreArticlesTexts: LinkLoadMoreArticlesTexts = {
+const linkLoadMoreArticlesTexts: Languages = {
   pt: "Carregar mais notícias",
   br: "Carregar mais notícias",
   us: "Load more articles",
