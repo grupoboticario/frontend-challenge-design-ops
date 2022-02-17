@@ -83,7 +83,12 @@ export default function NewsCard({
           component="img"
           alt={title}
           src={imagePath}
-          sx={{ borderRadius: "8px", width: "100%", height: imageHeight }}
+          sx={{
+            borderRadius: "8px",
+            width: "100%",
+            height: imageHeight,
+            objectFit: "cover",
+          }}
         />
       </Box>
       <Box sx={{ flex: flexBoxTitle }}>
