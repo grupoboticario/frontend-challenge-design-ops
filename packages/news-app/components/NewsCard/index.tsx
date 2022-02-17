@@ -29,6 +29,7 @@ type NewsCardProps = {
   imagePath: string;
   imageHeight?: number;
   category: string;
+  showCategory?: boolean;
   title: string;
   titleStyle: textStyle;
   linkFullArticle: string;
@@ -43,6 +44,7 @@ export default function NewsCard({
   imagePath,
   imageHeight = 104,
   category,
+  showCategory = true,
   title,
   titleStyle,
   linkFullArticle,
@@ -85,9 +87,11 @@ export default function NewsCard({
         />
       </Box>
       <Box sx={{ flex: flexBoxTitle }}>
-        <Category sx={{ fontSize: isTablet ? "16px" : "14px" }}>
-          {categoryTranslate}
-        </Category>
+        {showCategory && (
+          <Category sx={{ fontSize: isTablet ? "16px" : "14px" }}>
+            {categoryTranslate}
+          </Category>
+        )}
         <Text textStyle={titleStyle}>{title}</Text>
         <LinkBox>
           <LinkReadFullArticle href={linkFullArticle} target="_blank">
