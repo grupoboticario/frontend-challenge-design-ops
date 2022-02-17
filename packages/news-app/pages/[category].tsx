@@ -58,6 +58,7 @@ export default function Category() {
           </Text>
           <NewsList
             category={Array.isArray(category) ? category[0] : category || ""}
+            showCategory={false}
           />
         </Box>
         <ButtonLoadMore />
