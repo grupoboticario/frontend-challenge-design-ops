@@ -1,29 +1,32 @@
 import { device } from "@assets/styles/breakpoints";
 import NewsCard from "@components/NewsCard";
 import { Box, useMediaQuery } from "@mui/material";
+import { News } from "types/news";
 
 export default function NewsList({
+  articles,
   category,
   showCategory = true,
 }: {
+  articles: News[] | undefined;
   category: string;
   showCategory?: boolean;
 }) {
   const isTablet = useMediaQuery(device.tablet);
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      {Array.from(Array(10)).map((_, index) => {
+      {articles?.map((article, index) => {
         return (
           <NewsCard
             key={index}
             flexBoxTitle={isTablet ? 4 : 2}
-            imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
+            imagePath={article?.urlToImage || ""}
             category={category}
             showCategory={showCategory}
-            title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
+            title={article?.title || ""}
             titleStyle={isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"}
-            linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
-            publishedDate="14 hours ago"
+            linkFullArticle={article?.url || ""}
+            publishedDate={article?.publishedAt || ""}
             showPublishedDate
           />
         );

@@ -6,6 +6,7 @@ import NoResults from "@components/NoResults";
 import Text from "@components/Text";
 import { Box, Container, useMediaQuery } from "@mui/material";
 import { categories } from "data/categories";
+import { useFetchNewsByCategory } from "hooks/use-fetch-news-by-category";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { Languages } from "types/languages";
@@ -24,6 +25,11 @@ export default function Category() {
 
   const [categoryPage] = categories.filter(
     (item) => item.route.replace("/", "") === category
+  );
+
+  const { newsByCategory } = useFetchNewsByCategory(
+    theme,
+    categoryPage?.route.replace("/", "")
   );
 
   if (category === "search") {
@@ -57,6 +63,7 @@ export default function Category() {
             {title}
           </Text>
           <NewsList
+            articles={newsByCategory?.articles}
             category={Array.isArray(category) ? category[0] : category || ""}
             showCategory={false}
           />
