@@ -1,7 +1,7 @@
 import { device } from "@assets/styles/breakpoints";
 import ButtonLoadMore from "@components/ButtonLoadMore";
 import Layout from "@components/Layout";
-import NewsCard from "@components/NewsCard";
+import LoadingNews from "@components/LoadingNews";
 import NoResults from "@components/NoResults";
 import Text from "@components/Text";
 import { Box, Container, useMediaQuery } from "@mui/material";
@@ -27,7 +27,7 @@ export default function Category() {
     (item) => item.route.replace("/", "") === category
   );
 
-  const { newsByCategory } = useFetchNewsByCategory(
+  const { newsByCategory, loading } = useFetchNewsByCategory(
     theme,
     categoryPage?.route.replace("/", "")
   );
@@ -52,23 +52,31 @@ export default function Category() {
   return (
     <Layout>
       <Container sx={{ marginTop: isTablet ? "44px" : "20px" }}>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Text
-            textStyle={isTablet ? "TitleDesktop" : "TitleMobile"}
-            sx={{
-              textTransform: "capitalize",
-              marginBottom: isTablet ? "20px" : "16px",
-            }}
-          >
-            {title}
-          </Text>
-          <NewsList
-            articles={newsByCategory?.articles}
-            category={Array.isArray(category) ? category[0] : category || ""}
-            showCategory={false}
-          />
-        </Box>
-        <ButtonLoadMore />
+        {loading ? (
+          <LoadingNews />
+        ) : (
+          <>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Text
+                textStyle={isTablet ? "TitleDesktop" : "TitleMobile"}
+                sx={{
+                  textTransform: "capitalize",
+                  marginBottom: isTablet ? "20px" : "16px",
+                }}
+              >
+                {title}
+              </Text>
+              <NewsList
+                articles={newsByCategory?.articles}
+                category={
+                  Array.isArray(category) ? category[0] : category || ""
+                }
+                showCategory={false}
+              />
+            </Box>
+            <ButtonLoadMore />
+          </>
+        )}
       </Container>
     </Layout>
   );
