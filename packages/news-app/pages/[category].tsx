@@ -1,4 +1,5 @@
 import { device } from "@assets/styles/breakpoints";
+import ButtonLoadMore from "@components/ButtonLoadMore";
 import Layout from "@components/Layout";
 import NewsCard from "@components/NewsCard";
 import Text from "@components/Text";
@@ -62,6 +63,7 @@ export default function Category() {
             })}
           </Box>
         </Box>
+        <ButtonLoadMore />
       </Container>
     </Layout>
   );
