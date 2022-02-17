@@ -31,7 +31,7 @@ export default function Headlines() {
             flexDirection="column"
             imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
             imageHeight={isTablet ? 346 : 157}
-            category="Business"
+            category="Science"
             title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
             titleStyle={isTablet ? "HeadlineDesktop" : "HeadlineMobile"}
             linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"
@@ -49,7 +49,7 @@ export default function Headlines() {
             flexDirection="column"
             imagePath="https://media.wired.com/photos/6206ca1303dd42ee498c498b/191:100/w_1280,c_limit/Gear-Jabra-Elite-4-Active.jpg"
             imageHeight={isTablet ? 120 : 102}
-            category="Business"
+            category="Technology"
             title="Jabra's Elite 4 Active Offer Great Bang for Your Buck"
             titleStyle={isTablet ? "ArticleTitleDesktop" : "ArticleTitleMobile"}
             linkFullArticle="https://www.wired.com/review/jabra-elite-4-active/"

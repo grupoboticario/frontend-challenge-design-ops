@@ -1,6 +1,7 @@
 import { device } from "@assets/styles/breakpoints";
 import Text from "@components/Text";
 import { Box, useMediaQuery } from "@mui/material";
+import { categories } from "data/categories";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { textStyle } from "types/text";
@@ -15,6 +16,10 @@ import {
 } from "./index.styles";
 
 type LinkReadFullArticleTexts = {
+  [x: string]: string;
+};
+
+type Label = {
   [x: string]: string;
 };
 
@@ -58,6 +63,13 @@ export default function NewsCard({
   const [linkReadFullArticleText, setLinkReadFullArticleText] = useState(
     linkReadFullArticleTexts[theme]
   );
+  const [categoryPage] = categories.filter(
+    (item) => item.route.replace("/", "") === category.toLowerCase()
+  );
+
+  const label: Label = categoryPage ? categoryPage.label : categories[0].label;
+
+  const categoryTranslate = resolvedTheme ? label[theme] : label.us;
 
   useEffect(() => {
     setLinkReadFullArticleText(
@@ -79,7 +91,7 @@ export default function NewsCard({
       </Box>
       <Box sx={{ flex: flexBoxTitle }}>
         <Category sx={{ fontSize: isTablet ? "16px" : "14px" }}>
-          {category}
+          {categoryTranslate}
         </Category>
         <Text textStyle={titleStyle}>{title}</Text>
         <LinkBox>
