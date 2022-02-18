@@ -12,7 +12,7 @@ const linkLoadMoreArticlesTexts: Languages = {
   us: "Load more articles",
 };
 
-export default function ButtonLoadMore() {
+export default function ButtonLoadMore({ loadMore }: { loadMore: any }) {
   const isTablet = useMediaQuery(device.tablet);
   const { resolvedTheme } = useTheme();
   const theme: Theme = resolvedTheme?.replace("Theme", "") || "us";
@@ -33,6 +33,7 @@ export default function ButtonLoadMore() {
       <ButtonLoadMoreStyled
         variant="outlined"
         sx={{ margin: isTablet ? "20px 0 120px 0" : "36px 0 60px 0" }}
+        onClick={loadMore}
       >
         {linkLoadMoreArticlesText}
       </ButtonLoadMoreStyled>

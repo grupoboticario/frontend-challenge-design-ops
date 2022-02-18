@@ -23,9 +23,7 @@ export const useFetchNewsByKeyWord = (
 
     axios
       .get(
-        `/api/news/search?keyWord=${keyword}&language=${language}&pageSize=${
-          totalPage + 10
-        }`
+        `/api/news/search?keyWord=${keyword}&language=${language}&pageSize=${totalPage}`
       )
       .then((res) => {
         if (mounted) {

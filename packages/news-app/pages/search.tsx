@@ -21,6 +21,7 @@ const resultsForTexts: Languages = {
 };
 
 export default function Search() {
+  const [pageSize, setPageSize] = useState<number>(10);
   const isTablet = useMediaQuery(device.tablet);
   const router = useRouter();
   const { q: keyWord } = router.query;
@@ -39,7 +40,8 @@ export default function Search() {
 
   const { newsByKeyWord, loading } = useFetchNewsByKeyWord(
     Array.isArray(keyWord) ? keyWord[0] : keyWord || "",
-    language
+    language,
+    pageSize
   );
 
   useEffect(() => {
@@ -70,7 +72,9 @@ export default function Search() {
                     showCategory={false}
                   />
                 </Box>
-                <ButtonLoadMore />
+                <ButtonLoadMore
+                  loadMore={() => setPageSize((current) => current + 10)}
+                />
               </>
             ) : (
               <NoResults

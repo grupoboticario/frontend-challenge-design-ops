@@ -10,13 +10,14 @@ import { categories } from "data/categories";
 import { useFetchNewsByCategory } from "hooks/use-fetch-news-by-category";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Languages } from "types/languages";
 import { Theme } from "types/theme";
 import NewsList from "./components/NewsList";
 import Search from "./search";
 
 export default function Category() {
+  const [pageSize, setPageSize] = useState<number>(10);
   const { setKeyWord } = useContext(SerachContext);
 
   useEffect(() => {
@@ -37,7 +38,8 @@ export default function Category() {
 
   const { newsByCategory, loading } = useFetchNewsByCategory(
     theme,
-    categoryPage?.route.replace("/", "")
+    categoryPage?.route.replace("/", ""),
+    pageSize
   );
 
   if (category === "search") {
@@ -77,7 +79,9 @@ export default function Category() {
                     showCategory={false}
                   />
                 </Box>
-                <ButtonLoadMore />
+                <ButtonLoadMore
+                  loadMore={() => setPageSize((current) => current + 10)}
+                />
               </>
             ) : (
               <NoResults

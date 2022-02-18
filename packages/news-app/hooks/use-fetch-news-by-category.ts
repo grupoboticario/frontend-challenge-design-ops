@@ -25,9 +25,7 @@ export const useFetchNewsByCategory = (
 
     axios
       .get(
-        `/api/news/news-by-category?country=${country}&category=${category}&pageSize=${
-          totalPage + 10
-        }`
+        `/api/news/news-by-category?country=${country}&category=${category}&pageSize=${totalPage}`
       )
       .then((res) => {
         if (mounted) {
