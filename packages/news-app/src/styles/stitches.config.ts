@@ -7,7 +7,6 @@ import usa from '@design-ops/design-system/dist/usa/index.json'
 import { createStitches } from '@stitches/react'
 
 export const { styled, css, globalCss, getCssText, createTheme, theme, config } = createStitches({
-  theme: { ...usa },
   media: {
     bp1: '(min-width: 520px)',
     bp2: '(min-width: 768px)',

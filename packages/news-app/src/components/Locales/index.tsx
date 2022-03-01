@@ -1,3 +1,4 @@
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -7,19 +8,21 @@ import { useTranslation } from 'react-i18next'
 import * as S from './styles'
 
 export const Locales = () => {
+  const { theme, setTheme } = useTheme()
   const router = useRouter()
   const { locales, locale: activeLocale } = router
-  const otherLocales = locales.filter((locale) => locale !== activeLocale)
+  const otherLocales = locales?.filter((locale) => locale !== activeLocale)
   const [t, i18n] = useTranslation()
 
   React.useEffect(() => {
     i18n.changeLanguage(activeLocale)
-  }, [i18n, activeLocale])
+    setTheme(activeLocale)
+  }, [i18n, activeLocale, setTheme])
 
   return (
     <S.Locales>
       <S.List>
-        {otherLocales.map((locale) => {
+        {otherLocales?.map((locale) => {
           const { pathname, query, asPath } = router
 
           return (
