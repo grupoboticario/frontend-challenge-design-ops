@@ -8,7 +8,7 @@ import { createStitches } from '@stitches/react'
 
 export const { styled, css, globalCss, getCssText, createTheme, theme, config } = createStitches({
   media: {
-    bp1: '(min-width: 520px)',
+    bp1: '(min-width: 320px)',
     bp2: '(min-width: 768px)',
     bp3: '(min-width: 992px)',
     bp4: '(min-width: 1400px)',

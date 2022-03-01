@@ -1,15 +1,30 @@
-import type { NextPage } from 'next'
 import { useTranslation } from 'react-i18next'
-import { Locales } from '~/components/Locales'
+import { Header } from '~/components/Header'
+import { Main } from '~/components/Main'
+import { Search } from '~/components/Search'
 import { Text } from '~/components/Text'
+
+import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   const { t } = useTranslation()
 
   return (
     <>
-      <Locales />
-      <Text>{t('welcome.title')}</Text>
+      <Header />
+      <Main>
+        <Search
+          css={{
+            '@bp1': {
+              display: 'flex',
+            },
+            '@bp3': {
+              display: 'none',
+            },
+          }}
+        />
+        <Text>{t('welcome.title')}</Text>
+      </Main>
     </>
   )
 }

@@ -4,10 +4,9 @@ export const Locales = styled('div', {})
 
 export const List = styled('ul', {
   listStyle: 'none',
-  display: 'flex',
-  justifyContent: 'flex-end',
+  display: 'inline-flex',
 })
 
 export const Item = styled('li', {
-  p: '$3',
+  pl: '$6',
 })
