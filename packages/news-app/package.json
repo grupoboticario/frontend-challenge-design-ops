@@ -12,12 +12,14 @@
     "@design-ops/design-system": "1.0.0",
     "@stitches/react": "^1.2.7",
     "i18next": "^21.6.12",
+    "immer": "^9.0.12",
     "next": "12.0.9",
     "next-themes": "^0.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "^11.15.5",
-    "stitches-normalize-css": "^1.2.0"
+    "stitches-normalize-css": "^1.2.0",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
