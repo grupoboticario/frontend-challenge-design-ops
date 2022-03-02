@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Header } from '~/components/Header'
 import { Main } from '~/components/Main'
+import { Nav } from '~/components/Nav'
 import { Search } from '~/components/Search'
 import { Text } from '~/components/Text'
 
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
+      <Nav />
       <Main>
         <Search
           css={{

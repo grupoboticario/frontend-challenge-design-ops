@@ -2,5 +2,12 @@
   "welcome": {
     "title": "Bem vindo 🇧🇷"
   },
-  "search": "Buscar"
+  "search": "Buscar",
+  "home": "Início",
+  "business": "Negócios",
+  "entertainment": "Entretenimento",
+  "health": "Saúde",
+  "science": "Ciência",
+  "sports": "Esportes",
+  "technology": "Tecnologia"
 }

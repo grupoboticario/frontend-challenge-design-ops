@@ -2,5 +2,12 @@
   "welcome": {
     "title": "Welcome 🇺🇸"
   },
-  "search": "Search"
+  "search": "Search",
+  "home": "Home",
+  "business": "Business",
+  "entertainment": "Entertainment",
+  "health": "Health",
+  "science": "Science",
+  "sports": "Sports",
+  "technology": "Technology"
 }
