@@ -5,13 +5,13 @@ export const Nav = styled('div', {
   backgroundColor: '$primary',
   width: '70vw',
   height: '100vh',
-  overflow: 'hidden',
   position: 'absolute',
   top: 0,
   left: '-70vw',
   opacity: 0,
   '-webkit-transition': 'all 0.2s',
   transition: 'all 0.2s',
+  zIndex: 9999,
 
   '&.show': {
     left: 0,
