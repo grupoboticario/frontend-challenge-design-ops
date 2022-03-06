@@ -11,7 +11,7 @@ import * as S from './styles'
 export const Nav = () => {
   const { open } = useStore((store) => store.state)
   const { toggle } = useStore((store) => store.actions)
-  const { pathname, locale: activeLocale } = useRouter()
+  const { asPath } = useRouter()
   const [t] = useTranslation()
 
   return (
@@ -30,9 +30,13 @@ export const Nav = () => {
         </S.Button>
       </S.WrapperHeader>
       <S.Wrapper>
+        <Link href="/" passHref>
+          <S.Link className={asPath === '/' ? 'active' : ''}>{t('home')}</S.Link>
+        </Link>
+
         {navigation.map((item) => (
-          <Link href={item.link} locale={activeLocale} passHref key={item.key}>
-            <S.Link className={pathname === item.link ? 'active' : ''}>{t(`${item.key}`)}</S.Link>
+          <Link href={`/category${item.link}`} passHref key={item.key}>
+            <S.Link className={asPath.includes(item.link) ? 'active' : ''}>{t(`${item.key}`)}</S.Link>
           </Link>
         ))}
       </S.Wrapper>

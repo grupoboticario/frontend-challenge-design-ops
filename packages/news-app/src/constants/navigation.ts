@@ -1,9 +1,5 @@
 export const navigation = [
   {
-    link: '/',
-    key: 'home',
-  },
-  {
     link: '/business',
     key: 'business',
   },

@@ -75,6 +75,7 @@ const customGlobalStyles: Record<string, Stitches.CSS> = {
   body: {
     fontFamily: '$sourceSansPro',
   },
+  a: { textDecoration: 'none' },
 }
 
 export const globalStyles = globalCss(...normalize, customGlobalStyles)

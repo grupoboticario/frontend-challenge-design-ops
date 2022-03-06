@@ -8,8 +8,8 @@ import { useTranslation } from 'react-i18next'
 import * as S from './styles'
 
 export const Locales = () => {
-  const { theme, setTheme } = useTheme()
-  const { locales, locale: activeLocale } = useRouter()
+  const { setTheme } = useTheme()
+  const { asPath, locales, locale: activeLocale } = useRouter()
   const otherLocales = locales?.filter((locale) => locale !== activeLocale)
   const [t, i18n] = useTranslation()
 
@@ -23,8 +23,10 @@ export const Locales = () => {
       <S.List>
         {otherLocales?.map((locale) => (
           <S.Item key={locale}>
-            <Link href={locale} locale={locale} passHref>
-              <Image src={`/assets/brands/${locale}.svg`} width="40" height="28" alt={locale} />
+            <Link href={asPath} locale={locale} passHref>
+              <a>
+                <Image src={`/assets/brands/${locale}.svg`} width="40" height="28" alt={locale} />
+              </a>
             </Link>
           </S.Item>
         ))}
