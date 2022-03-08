@@ -22,8 +22,8 @@ export const Button = styled('button', {
   border: '1px solid $linkPrimary',
   borderRadius: '50px',
   cursor: 'pointer',
-  px: '$4',
-  py: '$6',
+  py: '$4',
+  px: '$6',
 
   '&:hover': {
     border: '1px solid $linkSecondary',
