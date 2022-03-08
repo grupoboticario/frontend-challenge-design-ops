@@ -9,7 +9,7 @@ import * as S from './styles'
 
 type CardProps = {
   css?: CSS
-  variant: 'highlight' | 'headlines' | 'category' | 'results' | 'mobileHighlight' | 'mobileHeadlines' | 'mobileResults'
+  variant?: 'highlight' | 'headlines' | 'category' | 'results' | 'mobileHighlight' | 'mobileHeadlines' | 'mobileResults'
   article: ArticleProps
   category: boolean
   publishAt: boolean
@@ -19,8 +19,8 @@ export const Card = ({ css, variant, article, category, publishAt }: CardProps) 
   const { locale: activeLocale } = useRouter()
   const [t] = useTranslation()
   const imageSize = imageSizes(variant)
-  const imageWidth = imageSize?.width ? imageSize.width : 100
-  const imageHeight = imageSize?.height ? imageSize.height : 100
+  const imageWidth = imageSize?.width ? imageSize.width : ''
+  const imageHeight = imageSize?.height ? imageSize.height : ''
   const urlToImage = article.urlToImage ? article.urlToImage : ''
   const url = article.url ? article.url : ''
 
@@ -36,7 +36,7 @@ export const Card = ({ css, variant, article, category, publishAt }: CardProps) 
         <img src={urlToImage} width={imageWidth} height={imageHeight} alt={article.title} />
       </S.Image>
       <S.Wrapper>
-        {category ? <S.Category>{article.source?.name}</S.Category> : null}
+        {category ? <S.Category>{article.source?.name ?? article.category}</S.Category> : null}
         <S.Headline>{article.title}</S.Headline>
         <Link href={url} passHref>
           <S.Link>

@@ -1,15 +1,15 @@
 export const imageSizes = (variant: string) => {
   const size = {
     highlight: {
-      width: 736,
+      width: '100%',
       height: 346,
     },
     headlines: {
-      width: 272,
+      width: '100%',
       height: 146,
     },
     category: {
-      width: 368,
+      width: '100%',
       height: 120,
     },
     results: {
@@ -17,11 +17,11 @@ export const imageSizes = (variant: string) => {
       height: 102,
     },
     mobileHighlight: {
-      width: 304,
+      width: '100%',
       height: 148,
     },
     mobileHeadlines: {
-      width: 304,
+      width: '100%',
       height: 102,
     },
     mobileResults: {

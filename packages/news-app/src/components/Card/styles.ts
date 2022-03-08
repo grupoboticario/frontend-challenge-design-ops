@@ -55,6 +55,7 @@ export const Card = styled('div', {
       results: {
         display: 'flex',
         alignItems: 'center',
+        mb: '$9',
 
         '& div': {
           ml: '$4',
@@ -126,6 +127,7 @@ export const Card = styled('div', {
       mobileResults: {
         display: 'flex',
         alignItems: 'center',
+        mb: '$4',
 
         '& div': {
           ml: '$4',
