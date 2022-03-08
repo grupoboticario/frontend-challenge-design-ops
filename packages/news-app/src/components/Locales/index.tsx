@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useStore } from '~/store'
 
 import * as S from './styles'
 
 export const Locales = () => {
+  const { setLocale } = useStore((store) => store.actions)
   const { setTheme } = useTheme()
   const { asPath, locales, locale: activeLocale } = useRouter()
   const otherLocales = locales?.filter((locale) => locale !== activeLocale)
@@ -16,7 +18,12 @@ export const Locales = () => {
   React.useEffect(() => {
     i18n.changeLanguage(activeLocale)
     setTheme(activeLocale)
-  }, [i18n, activeLocale, setTheme])
+    setLocale(activeLocale)
+  }, [i18n, activeLocale, setTheme, setLocale])
+
+  React.useEffect(() => {
+    setLocale(activeLocale)
+  }, [activeLocale, setLocale])
 
   return (
     <S.Locales>

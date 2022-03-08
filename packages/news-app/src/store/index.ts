@@ -3,6 +3,13 @@ import create from 'zustand'
 
 const initialState = {
   open: false,
+  locale: {
+    identifier: '',
+    language: '',
+    region: '',
+  },
+  defaultPage: 1,
+  defaultPageSize: 10,
 }
 
 export const useStore = create((set: any) => {
@@ -16,6 +23,16 @@ export const useStore = create((set: any) => {
       toggle() {
         setState(({ state }: any) => {
           state.open = !state.open
+        })
+      },
+      setLocale(locale: string | undefined) {
+        setState(({ state }: any) => {
+          const language = locale?.split('-')[0].toLowerCase()
+          const region = locale?.split('-')[1].toLowerCase()
+
+          state.locale.identifier = locale
+          state.locale.language = language
+          state.locale.region = region
         })
       },
     },
