@@ -1,9 +1,3 @@
-export const fetcher = async <JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> => {
-  const response = await fetch(input, init)
-
-  return response.json()
-}
-
 export const fetcherWithToken = async <JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> => {
   const url = process.env.NEXT_PUBLIC_API_URL + input
 
@@ -11,7 +5,12 @@ export const fetcherWithToken = async <JSON = any>(input: RequestInfo, init?: Re
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
   }
 
-  const response = await fetch(url, { ...init, headers })
+  try {
+    const response = await fetch(url, { ...init, headers })
+    const data = await response.json()
 
-  return response.json()
+    return data
+  } catch {
+    throw new Error('Invalid Response')
+  }
 }

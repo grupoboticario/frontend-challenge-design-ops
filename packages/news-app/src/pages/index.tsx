@@ -1,15 +1,15 @@
-import { useTranslation } from 'react-i18next'
+import { Highlighted } from '~/components/Articles/Highlighted'
+import { Latest } from '~/components/Articles/Latest'
+import { Divider } from '~/components/Divider'
 import { Layout } from '~/components/Layout'
-import { Text } from '~/components/Text'
 
 import type { NextPage } from 'next'
-
 const Home: NextPage = () => {
-  const { t } = useTranslation()
-
   return (
     <Layout>
-      <Text>{t('welcome.title')}</Text>
+      <Highlighted />
+      <Divider />
+      <Latest />
     </Layout>
   )
 }
