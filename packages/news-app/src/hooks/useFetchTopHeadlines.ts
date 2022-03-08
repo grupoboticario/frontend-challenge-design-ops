@@ -8,5 +8,5 @@ export const useFetchTopHeadlines = () => {
 
   const isLoading = !isValidating && !error && data
 
-  return { data: data?.articles ?? [], isLoading }
+  return { data, isLoading }
 }

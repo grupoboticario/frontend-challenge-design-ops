@@ -10,6 +10,7 @@ const initialState = {
   },
   defaultPage: 1,
   defaultPageSize: 10,
+  searchForKeyword: '',
 }
 
 export const useStore = create((set: any) => {
@@ -33,6 +34,11 @@ export const useStore = create((set: any) => {
           state.locale.identifier = locale
           state.locale.language = language
           state.locale.region = region
+        })
+      },
+      setSearchForKeyword(query: string | undefined) {
+        setState(({ state }: any) => {
+          state.search = query
         })
       },
     },

@@ -3,22 +3,26 @@ import { useStore } from '~/store'
 import { queryString } from '~/utils/queryString'
 
 type useFetchLatestNewsProps = {
-  pageSize?: number
   params?: any
 }
 
 export const useFetchLatestNews = (props: useFetchLatestNewsProps) => {
   const { locale, defaultPageSize } = useStore((store) => store.state)
-  const pageSize = props?.pageSize ?? defaultPageSize
   const paramDefault = encodeURI('category=business')
   const params = props?.params ? queryString(props?.params) : paramDefault
 
-  const { data, error, size, setSize } = useSWRInfinite(
-    (index) => `/top-headlines?page=${index + 1}&pageSize=${pageSize}&country=${locale.region}&${params}`
-  )
+  const { data, error, isValidating, size, setSize } = useSWRInfinite((index) => {
+    const pageSize = index === 1 ? 6 : defaultPageSize
 
-  const isEmpty = data?.[0]?.articles.length === 0
-  const results = data ? [].concat(...data?.[0]?.articles) : []
+    return `/top-headlines?page=${index + 1}&pageSize=${pageSize}&country=${locale.region}&${params}`
+  })
 
-  return { data: results, error, isEmpty, size, setSize }
+  const results = data ? [].concat(...data) : []
+  const isLoadingInitialData = !data && !error
+  const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === 'undefined')
+  const isEmpty = data?.[0]?.length === 0
+  const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < defaultPageSize)
+  const isRefreshing = isValidating && data && data.length === size
+
+  return { data: results, error, size, setSize, isLoadingMore, isReachingEnd, isRefreshing }
 }

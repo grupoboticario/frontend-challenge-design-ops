@@ -5,7 +5,6 @@ import { Card } from '~/components/Card'
 import { LoadMoreButton } from '~/components/LoadMoreButton'
 import { useFetchByCategory } from '~/hooks/useFetchByCategory'
 import { ArticleProps } from '~/services/types/Article'
-import { useStore } from '~/store'
 import { slugify } from '~/utils/slugify'
 
 import * as S from './styles'
@@ -17,17 +16,9 @@ type CategoryProps = {
 export const Category = ({ title }: CategoryProps) => {
   const { query } = useRouter()
   const { slug } = query
-  const { defaultPage, defaultPageSize } = useStore((store) => store.state)
-  const [pageSize, setPageSize] = React.useState<number>(defaultPageSize)
-  const { data, isEmpty, size, setSize } = useFetchByCategory({
-    pageSize,
+  const { data, size, setSize, isLoadingMore, isReachingEnd, isRefreshing } = useFetchByCategory({
     params: { category: slug },
   })
-
-  const nextPage = () => {
-    setSize(size + defaultPage)
-    setPageSize(data.length + defaultPageSize)
-  }
 
   return (
     <S.Category>
@@ -74,7 +65,7 @@ export const Category = ({ title }: CategoryProps) => {
         ))}
       </Box>
 
-      <LoadMoreButton isEmpty={isEmpty} handleClick={() => nextPage()} />
+      <LoadMoreButton isLoading={isLoadingMore} isDisabled={isReachingEnd} handleClick={() => setSize(size + 1)} />
     </S.Category>
   )
 }

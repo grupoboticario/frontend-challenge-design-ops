@@ -30,3 +30,11 @@ export const Input = styled('input', {
   letterSpacing: '$wider',
   mr: '$4',
 })
+
+export const Button = styled('button', {
+  background: 'none',
+  border: 0,
+  width: '$11',
+  height: '$11',
+  cursor: 'pointer',
+})

@@ -12,7 +12,7 @@ export const Title = styled('h2', {
   mb: '$4',
 
   '@bp3': {
-    fontSize: '$4xl',
+    fontSize: '$5xl',
     lineHeight: '$12',
     mt: 0,
     mb: '$5',

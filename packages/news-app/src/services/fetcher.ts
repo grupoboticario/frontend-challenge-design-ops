@@ -7,9 +7,9 @@ export const fetcherWithToken = async <JSON = any>(input: RequestInfo, init?: Re
 
   try {
     const response = await fetch(url, { ...init, headers })
-    const data = await response.json()
+    const { articles } = await response.json()
 
-    return data
+    return articles
   } catch {
     throw new Error('Invalid Response')
   }

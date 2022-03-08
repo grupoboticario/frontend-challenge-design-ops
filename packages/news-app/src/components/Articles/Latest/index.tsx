@@ -5,23 +5,13 @@ import { Card } from '~/components/Card'
 import { LoadMoreButton } from '~/components/LoadMoreButton'
 import { useFetchLatestNews } from '~/hooks/useFetchLatestNews'
 import { ArticleProps } from '~/services/types/Article'
-import { useStore } from '~/store'
 import { slugify } from '~/utils/slugify'
 
 import * as S from './styles'
 
 export const Latest = () => {
   const [t] = useTranslation()
-  const { defaultPage, defaultPageSize } = useStore((store) => store.state)
-  const [pageSize, setPageSize] = React.useState<number>(6)
-  const { data, isEmpty, size, setSize } = useFetchLatestNews({
-    pageSize,
-  })
-
-  const nextPage = () => {
-    setSize(size + defaultPage)
-    setPageSize(data.length + defaultPageSize)
-  }
+  const { data, size, setSize, isLoadingMore, isReachingEnd, isRefreshing } = useFetchLatestNews({})
 
   return (
     <S.Latest>
@@ -73,7 +63,7 @@ export const Latest = () => {
         ))}
       </Box>
 
-      <LoadMoreButton isEmpty={isEmpty} handleClick={() => nextPage()} />
+      <LoadMoreButton isLoading={isLoadingMore} isDisabled={isReachingEnd} handleClick={() => setSize(size + 1)} />
     </S.Latest>
   )
 }
