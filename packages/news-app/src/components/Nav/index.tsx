@@ -36,7 +36,9 @@ export const Nav = () => {
 
         {navigation.map((item) => (
           <Link href={`/category${item.link}`} passHref key={item.key}>
-            <S.Link className={asPath.includes(item.link) ? 'active' : ''}>{t(`${item.key}`)}</S.Link>
+            <S.Link className={asPath.includes(item.link) ? 'active' : ''} onClick={() => open && toggle()}>
+              {t(`${item.key}`)}
+            </S.Link>
           </Link>
         ))}
       </S.Wrapper>
