@@ -69,7 +69,9 @@
     "7": { "value": "1.75rem" },
     "8": { "value": "2rem" },
     "9": { "value": "2.25rem" },
-    "10": { "value": "2.5rem" }
+    "10": { "value": "2.5rem" },
+    "11": { "value": "2.813rem" },
+    "12": { "value": "3.75rem" }
   },
   "letterSpacings": {
     "tighter": { "value": "-0.05em" },
@@ -80,6 +82,7 @@
     "widest": { "value": "0.1em" }
   },
   "sizes": {
+    "px": { "value": "1px" },
     "full": { "value": "100%" },
     "0": { "value": "0rem" },
     "1": { "value": "0.25rem" },
