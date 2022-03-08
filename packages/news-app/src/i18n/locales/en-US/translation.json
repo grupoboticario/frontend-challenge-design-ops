@@ -14,5 +14,6 @@
   "noMoreResults": "No more results",
   "resultsFor": "Results for",
   "noResultsFor": "No results for",
-  "tryToSearch": "Try to search for other terms."
+  "tryToSearch": "Try to search for other terms.",
+  "loading": "Loading..."
 }
