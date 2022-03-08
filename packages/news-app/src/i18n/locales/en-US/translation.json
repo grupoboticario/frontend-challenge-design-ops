@@ -1,7 +1,4 @@
 {
-  "welcome": {
-    "title": "Welcome 🇺🇸"
-  },
   "search": "Search",
   "home": "Home",
   "business": "Business",
@@ -10,5 +7,12 @@
   "science": "Science",
   "sports": "Sports",
   "technology": "Technology",
-  "readMore": "Read full article"
+  "readMore": "Read full article",
+  "latestNews": "Latest news",
+  "headlines": "Headlines",
+  "loadMore": "Load more results",
+  "noMoreResults": "No more results",
+  "resultsFor": "Results for",
+  "noResultsFor": "No results for",
+  "tryToSearch": "Try to search for other terms."
 }
