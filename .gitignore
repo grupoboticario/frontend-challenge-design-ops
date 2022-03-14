@@ -114,3 +114,4 @@ storybook-static
 
 # IDE folders
 .idea/
+.vercel
