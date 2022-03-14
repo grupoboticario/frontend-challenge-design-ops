@@ -1,0 +1,19 @@
+{
+  "search": "Search",
+  "home": "Home",
+  "business": "Business",
+  "entertainment": "Entertainment",
+  "health": "Health",
+  "science": "Science",
+  "sports": "Sports",
+  "technology": "Technology",
+  "readMore": "Read full article",
+  "latestNews": "Latest news",
+  "headlines": "Headlines",
+  "loadMore": "Load more results",
+  "noMoreResults": "No more results",
+  "resultsFor": "Results for",
+  "noResultsFor": "No results for",
+  "tryToSearch": "Try to search for other terms.",
+  "loading": "Loading..."
+}
