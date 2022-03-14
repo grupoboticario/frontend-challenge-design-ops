@@ -16,56 +16,60 @@ type CategoryProps = {
 export const Category = ({ title }: CategoryProps) => {
   const { query } = useRouter()
   const { slug } = query
-  const { data, size, setSize, isLoadingMore, isReachingEnd, isRefreshing } = useFetchByCategory({
+  const { data, size, setSize, isLoadingMore, isReachingEnd } = useFetchByCategory({
     params: { category: slug },
   })
 
   return (
-    <S.Category>
-      <S.Title>{title}</S.Title>
+    <>
+      {data.length ? (
+        <S.Category>
+          <S.Title>{title}</S.Title>
 
-      <Box
-        css={{
-          '@bp1': {
-            display: 'none',
-          },
-          '@bp3': {
-            display: 'block',
-          },
-        }}
-      >
-        {data.map((article: ArticleProps) => (
-          <Card
-            key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
-            article={article}
-            variant="results"
-            category={false}
-          />
-        ))}
-      </Box>
+          <Box
+            css={{
+              '@bp1': {
+                display: 'none',
+              },
+              '@bp3': {
+                display: 'block',
+              },
+            }}
+          >
+            {data.map((article: ArticleProps) => (
+              <Card
+                key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
+                article={article}
+                variant="results"
+                category={false}
+              />
+            ))}
+          </Box>
 
-      <Box
-        css={{
-          '@bp1': {
-            display: 'block',
-          },
-          '@bp3': {
-            display: 'none',
-          },
-        }}
-      >
-        {data.map((article: ArticleProps) => (
-          <Card
-            key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
-            article={article}
-            variant="mobileResults"
-            publishAt={false}
-            category={false}
-          />
-        ))}
-      </Box>
+          <Box
+            css={{
+              '@bp1': {
+                display: 'block',
+              },
+              '@bp3': {
+                display: 'none',
+              },
+            }}
+          >
+            {data.map((article: ArticleProps) => (
+              <Card
+                key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
+                article={article}
+                variant="mobileResults"
+                publishAt={false}
+                category={false}
+              />
+            ))}
+          </Box>
 
-      <LoadMoreButton isLoading={isLoadingMore} isDisabled={isReachingEnd} handleClick={() => setSize(size + 1)} />
-    </S.Category>
+          <LoadMoreButton isLoading={isLoadingMore} isDisabled={isReachingEnd} handleClick={() => setSize(size + 1)} />
+        </S.Category>
+      ) : null}
+    </>
   )
 }

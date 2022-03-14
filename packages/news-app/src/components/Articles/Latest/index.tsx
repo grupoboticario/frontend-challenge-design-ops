@@ -11,59 +11,63 @@ import * as S from './styles'
 
 export const Latest = () => {
   const [t] = useTranslation()
-  const { data, size, setSize, isLoadingMore, isReachingEnd, isRefreshing } = useFetchLatestNews({})
+  const { data, size, setSize, isLoadingMore, isReachingEnd } = useFetchLatestNews({})
 
   return (
-    <S.Latest>
-      <S.Title>{t('latestNews')}</S.Title>
+    <>
+      {data.length ? (
+        <S.Latest>
+          <S.Title>{t('latestNews')}</S.Title>
 
-      <Box
-        css={{
-          '@bp1': {
-            display: 'none',
-          },
-          '@bp3': {
-            display: 'grid',
-            gridAutoFlow: 'dense',
-            columnGap: '$4',
-            rowGap: '$8',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-          },
-        }}
-      >
-        {data.map((article: ArticleProps) => (
-          <Card
-            key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
-            variant="category"
-            publishAt={false}
-            article={article}
-          />
-        ))}
-      </Box>
+          <Box
+            css={{
+              '@bp1': {
+                display: 'none',
+              },
+              '@bp3': {
+                display: 'grid',
+                gridAutoFlow: 'dense',
+                columnGap: '$4',
+                rowGap: '$8',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+              },
+            }}
+          >
+            {data.map((article: ArticleProps) => (
+              <Card
+                key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
+                variant="category"
+                publishAt={false}
+                article={article}
+              />
+            ))}
+          </Box>
 
-      <Box
-        css={{
-          '@bp1': {
-            display: 'grid',
-            gridAutoFlow: 'row',
-            rowGap: '$4',
-          },
-          '@bp3': {
-            display: 'none',
-          },
-        }}
-      >
-        {data.map((article: ArticleProps) => (
-          <Card
-            key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
-            variant="mobileResults"
-            publishAt={false}
-            article={article}
-          />
-        ))}
-      </Box>
+          <Box
+            css={{
+              '@bp1': {
+                display: 'grid',
+                gridAutoFlow: 'row',
+                rowGap: '$4',
+              },
+              '@bp3': {
+                display: 'none',
+              },
+            }}
+          >
+            {data.map((article: ArticleProps) => (
+              <Card
+                key={slugify(`${article?.publishedAt}-${article?.source?.name}`)}
+                variant="mobileResults"
+                publishAt={false}
+                article={article}
+              />
+            ))}
+          </Box>
 
-      <LoadMoreButton isLoading={isLoadingMore} isDisabled={isReachingEnd} handleClick={() => setSize(size + 1)} />
-    </S.Latest>
+          <LoadMoreButton isLoading={isLoadingMore} isDisabled={isReachingEnd} handleClick={() => setSize(size + 1)} />
+        </S.Latest>
+      ) : null}
+    </>
   )
 }

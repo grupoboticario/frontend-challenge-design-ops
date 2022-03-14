@@ -18,17 +18,18 @@ type CardProps = {
 export const Card = ({ css, variant, article, category, publishAt }: CardProps) => {
   const { locale: activeLocale } = useRouter()
   const [t] = useTranslation()
-  const imageSize = imageSizes(variant)
+  const imageSize = variant ? imageSizes(variant) : { width: 0, height: 0 }
   const imageWidth = imageSize?.width ? imageSize.width : ''
   const imageHeight = imageSize?.height ? imageSize.height : ''
   const urlToImage = article.urlToImage ? article.urlToImage : ''
   const url = article.url ? article.url : ''
-
-  const publishedAt = new Date(article.publishedAt).toLocaleDateString(activeLocale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+  const publishedAt = article?.publishedAt
+    ? new Date(article?.publishedAt).toLocaleDateString(activeLocale, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : ''
 
   return (
     <S.Card css={css} variant={variant}>

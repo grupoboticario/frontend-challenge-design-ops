@@ -11,7 +11,10 @@ export const useFetchByKeywords = (props: useFetchByKeywordsProps) => {
   const params = props?.params ? queryString(props?.params) : ''
 
   const { data, error, isValidating, size, setSize } = useSWRInfinite(
-    (index) => `/top-headlines?page=${index + 1}&pageSize=${defaultPageSize}&country=${locale.region}&${params}`
+    (index) =>
+      `${process.env.NEXT_PUBLIC_API_URL}/top-headlines?page=${index + 1}&pageSize=${defaultPageSize}&country=${
+        locale.region
+      }&${params}`
   )
 
   const results = data ? [].concat(...data) : []

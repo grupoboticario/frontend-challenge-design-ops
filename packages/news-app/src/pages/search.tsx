@@ -29,7 +29,7 @@ export default function Search() {
         </>
       ) : null}
 
-      {data.length > 1 ? (
+      {data.length ? (
         <>
           <Title>
             {t('resultsFor')}: {keyword}

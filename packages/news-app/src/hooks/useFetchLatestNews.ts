@@ -14,7 +14,9 @@ export const useFetchLatestNews = (props: useFetchLatestNewsProps) => {
   const { data, error, isValidating, size, setSize } = useSWRInfinite((index) => {
     const pageSize = index === 1 ? 6 : defaultPageSize
 
-    return `/top-headlines?page=${index + 1}&pageSize=${pageSize}&country=${locale.region}&${params}`
+    return `${process.env.NEXT_PUBLIC_API_URL}/top-headlines?page=${index + 1}&pageSize=${pageSize}&country=${
+      locale.region
+    }&${params}`
   })
 
   const results = data ? [].concat(...data) : []
