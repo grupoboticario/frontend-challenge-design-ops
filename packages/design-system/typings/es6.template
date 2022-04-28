@@ -1,0 +1,5 @@
+declare module 'design-system' {
+<% _.each(allProperties, function(property) {
+%>  export const <%= property.name %>: string;
+<% }); %>
+}

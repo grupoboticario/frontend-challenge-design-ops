@@ -13,6 +13,7 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+
 # Runtime data
 pids
 *.pid
@@ -115,3 +116,7 @@ storybook-static
 # IDE folders
 .idea/
 .vercel
+
+
+!/packages/design-system/**/es6.template
+!/packages/design-system/typings/es6.template

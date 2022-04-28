@@ -17,7 +17,8 @@
     "turbo": "^1.0.24"
   },
   "devDependencies": {
-    "@manypkg/cli": "^0.19.1"
+    "@manypkg/cli": "^0.19.1",
+    "@types/lodash": "^4.14.182"
   },
   "turbo": {
     "pipeline": {
@@ -26,7 +27,8 @@
           "^build"
         ],
         "outputs": [
-          "dist/**"
+          "dist/**",
+          ".next/**"
         ]
       },
       "test": {

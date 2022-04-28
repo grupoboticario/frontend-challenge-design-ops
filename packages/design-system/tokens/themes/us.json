@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "primary": {
+      "value": "#38446C"
+    },
+    "menuPrimary": {
+      "value": "#526092"
+    },
+    "menuSecondary": {
+      "value": "#6277C2"
+    },
+    "linkPrimary": {
+      "value": "#A53737"
+    },
+    "linkSecondary": {
+      "value": "#D10B0B"
+    },
+    "linkTertiary": {
+      "value": "#693939"
+    }
+  }
+}
