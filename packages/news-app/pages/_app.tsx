@@ -1,17 +1,38 @@
-import type { AppProps } from "next/app";
+import React from 'react';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
 
-/**
- * Você pode importar os tokens de algumas coisas, como abaixo
- * JS, CSS (Variables), SCSS
- */
+import { Menu } from '@components/template';
+import { Container } from '@components/atoms';
+import {
+  injectGlobalStyles, themeUS, themeBR, themePT,
+} from '@utils/stitches';
 
-// import { colors } from "@design-ops/design-system/dist/belezanaweb";
-// console.log(colors.primary.value);
-// import "design-system/dist/belezanaweb/index.css";
-// import "design-system/dist/oboticario/index.css";
+import '@design-ops/design-system/dist/br/index.css';
+import '@design-ops/design-system/dist/pt/index.css';
+import '@design-ops/design-system/dist/us/index.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  injectGlobalStyles();
+
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="pt-BR"
+      storageKey="theme"
+      value={{
+        'en-US': themeUS.className,
+        'pt-BR': themeBR.className,
+        'pt-PT': themePT.className,
+      }}
+    >
+      {typeof window !== 'undefined' && (<Menu currentPath={window?.location.pathname} />)}
+      <Container>
+        <Component {...pageProps} />
+      </Container>
+    </ThemeProvider>
+
+  );
 }
 
 export default MyApp;
