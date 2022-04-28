@@ -1,64 +1,326 @@
 {
   "colors": {
-    "primary": {
-      "value": "#000000"
+    "transparent": {
+      "value": "transparent"
     },
-    "secondary": {
+    "text": {
+      "value": "#222222"
+    },
+    "white": {
       "value": "#FFFFFF"
+    },
+    "textAux": {
+      "value": "#666666"
+    },
+    "line": {
+      "value": "#CCCCCC"
     }
   },
   "radii": {
-    "sharp": { "value": "0px" },
-    "small": { "value": "4px" },
-    "medium": { "value": "8px" },
-    "large": { "value": "16px" },
-    "pill": { "value": "100%" }
+    "small": {
+      "value": "4px"
+    },
+    "normal": {
+      "value": "6px"
+    },
+    "large": {
+      "value": "8px"
+    },
+    "xlarge": {
+      "value": "30px"
+    }
+  },
+  "fonts": {
+    "sourceSansPro": {
+      "value": "Source Sans Pro, sans-serif"
+    },
+    "rubik": {
+      "value": "Rubik, sans-serif"
+    }
   },
   "fontSizes": {
-    "xxs": { "value": "0.5rem" },
-    "xs": { "value": "0.625rem" },
-    "sm": { "value": "0.75rem" },
-    "md": { "value": "0.875rem" },
-    "lg": { "value": "1rem" },
-    "xl": { "value": "1.125rem" },
-    "xxl": { "value": "1.25rem" },
-    "2xl": { "value": "1.5rem" },
-    "3xl": { "value": "2.25rem" },
-    "4xl": { "value": "3rem" },
-    "5xl": { "value": "4.5rem" },
-    "6xl": { "value": "6rem" },
-    "7xl": { "value": "8rem" }
+    "xxs": {
+      "value": "0.5rem"
+    },
+    "xs": {
+      "value": "0.85rem"
+    },
+    "x": {
+      "value": "1rem"
+    },
+    "xl": {
+      "value": "1.125rem"
+    },
+    "xxl": {
+      "value": "1.25rem"
+    },
+    "2xl": {
+      "value": "1.5rem"
+    },
+    "3xl": {
+      "value": "2.25rem"
+    },
+    "4xl": {
+      "value": "2.5rem"
+    },
+    "5xl": {
+      "value": "3rem"
+    },
+    "6xl": {
+      "value": "6rem"
+    },
+    "7xl": {
+      "value": "8rem"
+    }
+  },
+  "fontWeights": {
+    "hairline": {
+      "value": 100
+    },
+    "thin": {
+      "value": 200
+    },
+    "light": {
+      "value": 300
+    },
+    "normal": {
+      "value": 400
+    },
+    "medium": {
+      "value": 500
+    },
+    "semibold": {
+      "value": 600
+    },
+    "bold": {
+      "value": 700
+    },
+    "extrabold": {
+      "value": 800
+    },
+    "black": {
+      "value": 900
+    }
+  },
+  "lineHeights": {
+    "normal": {
+      "value": "normal"
+    },
+    "none": {
+      "value": 1
+    },
+    "shorter": {
+      "value": 1.25
+    },
+    "short": {
+      "value": 1.375
+    },
+    "base": {
+      "value": 1.5
+    },
+    "tall": {
+      "value": 1.625
+    },
+    "taller": {
+      "value": "2"
+    },
+    "3": {
+      "value": ".75rem"
+    },
+    "4": {
+      "value": "1rem"
+    },
+    "4-5": {
+      "value": "1.125rem"
+    },
+    "5": {
+      "value": "1.25rem"
+    },
+    "6": {
+      "value": "1.5rem"
+    },
+    "7": {
+      "value": "1.75rem"
+    },
+    "7-5": {
+      "value": "1.875rem"
+    },
+    "8": {
+      "value": "2rem"
+    },
+    "9": {
+      "value": "2.25rem"
+    },
+    "10": {
+      "value": "2.5rem"
+    },
+    "11": {
+      "value": "2.813rem"
+    },
+    "12": {
+      "value": "3.75rem"
+    },
+    "13": {
+      "value": "3.125rem"
+    }
+  },
+  "letterSpacings": {
+    "tighter": {
+      "value": "-0.05em"
+    },
+    "tight": {
+      "value": "-0.025em"
+    },
+    "normal": {
+      "value": "0"
+    },
+    "wide": {
+      "value": "0.025em"
+    },
+    "wider": {
+      "value": "0.05em"
+    },
+    "widest": {
+      "value": "0.1em"
+    }
   },
   "sizes": {
-    "0": { "value": "0rem" },
-    "1": { "value": "0.25rem" },
-    "2": { "value": "0.5rem" },
-    "3": { "value": "0.75rem" },
-    "4": { "value": "1rem" },
-    "5": { "value": "1.25rem" },
-    "6": { "value": "1.5rem" },
-    "7": { "value": "1.75rem" },
-    "8": { "value": "2rem" },
-    "9": { "value": "2.25rem" },
-    "10": { "value": "2.5rem" },
-    "11": { "value": "2.75rem" },
-    "12": { "value": "3rem" },
-    "13": { "value": "3.25rem" },
-    "14": { "value": "3.5rem" },
-    "15": { "value": "3.75rem" },
-    "16": { "value": "4rem" },
-    "17": { "value": "4.25rem" },
-    "18": { "value": "4.5rem" },
-    "19": { "value": "4.75rem" },
-    "20": { "value": "5rem" },
-    "21": { "value": "5.25rem" },
-    "22": { "value": "5.5rem" },
-    "23": { "value": "5.75rem" }
+    "px": {
+      "value": "1px"
+    },
+    "full": {
+      "value": "100%"
+    },
+    "0": {
+      "value": "0rem"
+    },
+    "1": {
+      "value": "0.25rem"
+    },
+    "2": {
+      "value": "0.5rem"
+    },
+    "20": {
+      "value": "5rem"
+    },
+    "21": {
+      "value": "5.25rem"
+    },
+    "22": {
+      "value": "5.5rem"
+    },
+    "23": {
+      "value": "5.75rem"
+    },
+    "24": {
+      "value": "29.5rem"
+    }
   },
-  "media": {
-    "mobile": { "value": "(min-width: 520px)" },
-    "tablet": { "value": "(min-width: 768px)" },
-    "desktop": { "value": "(min-width: 992px)" },
-    "ultrawide": { "value": "(min-width: 1400px)" }
+  "space": {
+    "px": {
+      "value": "1px"
+    },
+    "0-5": {
+      "value": "0.125rem"
+    },
+    "1": {
+      "value": "0.25rem"
+    },
+    "1-5": {
+      "value": "0.375rem"
+    },
+    "2": {
+      "value": "0.5rem"
+    },
+    "2-5": {
+      "value": "0.625rem"
+    },
+    "3": {
+      "value": "0.75rem"
+    },
+    "3-5": {
+      "value": "0.875rem"
+    },
+    "4": {
+      "value": "1rem"
+    },
+    "5": {
+      "value": "1.25rem"
+    },
+    "6": {
+      "value": "1.5rem"
+    },
+    "7": {
+      "value": "1.75rem"
+    },
+    "8": {
+      "value": "2rem"
+    },
+    "9": {
+      "value": "2.25rem"
+    },
+    "10": {
+      "value": "2.5rem"
+    },
+    "12": {
+      "value": "3rem"
+    },
+    "14": {
+      "value": "3.5rem"
+    },
+    "14-5": {
+      "value": "3.75rem"
+    },
+    "16": {
+      "value": "4rem"
+    },
+    "20": {
+      "value": "5rem"
+    },
+    "24": {
+      "value": "6rem"
+    },
+    "28": {
+      "value": "7rem"
+    },
+    "32": {
+      "value": "8rem"
+    },
+    "36": {
+      "value": "9rem"
+    },
+    "36-5": {
+      "value": "9.5rem"
+    },
+    "40": {
+      "value": "10rem"
+    },
+    "44": {
+      "value": "11rem"
+    },
+    "48": {
+      "value": "12rem"
+    },
+    "52": {
+      "value": "13rem"
+    },
+    "56": {
+      "value": "14rem"
+    },
+    "60": {
+      "value": "15rem"
+    },
+    "64": {
+      "value": "16rem"
+    },
+    "72": {
+      "value": "18rem"
+    },
+    "80": {
+      "value": "20rem"
+    },
+    "96": {
+      "value": "24rem"
+    }
   }
 }
