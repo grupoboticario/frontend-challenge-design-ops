@@ -5,8 +5,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "node build.js",
-    "postbuild": "yarn run tsc dist/**/*.js --declaration --allowJs --emitDeclarationOnly"
+    "build": "node build.js"
   },
   "dependencies": {
     "style-dictionary": "^3.1.1"
