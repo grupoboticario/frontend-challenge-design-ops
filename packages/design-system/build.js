@@ -43,7 +43,7 @@ const getStyleDictionaryConfig = ({ theme }) => {
         ],
       },
       'web/json': {
-        transformGroup: "js",
+        transforms: ['name/cti/constant'],
         buildPath: `./dist/${theme}/`,
         options,
         files: [
@@ -53,24 +53,14 @@ const getStyleDictionaryConfig = ({ theme }) => {
           }
         ]
       },
-      'web/ts': {
-        transformGroup: "js",
-        buildPath: `./dist/${theme}/`,
-        options,
-        files: [
-          {
-            destination: "index.d.ts",
-            format: "typings/es6"
-          }
-        ]
-      }
+    
     },
   }
 }
 
 console.log('Build started...')
 
-const platforms = ['web/css', 'web/scss', 'web/json', 'web/ts']
+const platforms = ['web/css', 'web/scss', 'web/json']
 const themes = ['br', 'us', 'pt']
 
 themes.forEach((theme) => {
